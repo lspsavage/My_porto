@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styling dasar dan optimasi performa untuk cursor glow */
+body {
+  font-family: "Inter", sans-serif;
+  /* Menggunakan font Inter */
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  /* Mencegah scrollbar horizontal */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#cursor-glow {
+  will-change: transform, left, top;
+  transform: translateZ(0);
+}
+
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  pointer-events: none;
+}
+
+.glow-effect {
+  box-shadow: 0 0 25px rgba(155, 61, 213, 0.5);
+}
+
+/* Hide cursor glow on small screens */
+@media (max-width: 768px) {
+  #cursor-glow {
+    display: none;
+  }
+}
+
+/* Hide me on laptop screen */
+@media (min-width: 1024px) {
+  #me {
+    display: none;
+  }
+}

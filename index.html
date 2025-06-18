@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luthfa Sobrian</title>
+  <link href="./dist/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-[#0f0f0f] text-white font-sans scroll-smooth m-0 p-0 relative overflow-x-hidden">
+  <!-- The cursor glow element -->
+  <div id="cursor-glow"
+    class="pointer-events-none fixed top-0 left-0 w-96 h-96 rounded-full bg-purple-700 opacity-15 blur-2xl z-0">
+  </div>
+
+  <!-- Navbar -->
+  <nav
+    class="bg-[#0f0f0f] border-b border-gray-800 backdrop-blur-md shadow-lg transition-all duration-300 mb-18 relative z-50">
+    <div class="max-w-6xl mx-auto px-2 py-4 flex justify-between items-center">
+      <div class="flex justify-between items-center space-x-4">
+        <img src="./assets/Logo LS.png" alt="Logo"
+          class="h-12 w-12 rounded-full object-cover transition-transform duration-500 hover:scale-105">
+        <span class="text-white text-lg font-semibold">Luthfa Sobrian</span>
+      </div>
+
+      <!-- Hamburger Button -->
+      <button id="hamburger"
+        class="md:hidden relative z-50 flex flex-col justify-center items-center w-10 h-10 rounded hover:bg-gray-800 focus:outline-none">
+        <span id="bar1" class="block w-6 h-0.5 bg-white mb-1 transition-transform duration-300"></span>
+        <span id="bar2" class="block w-6 h-0.5 bg-white mb-1 transition-opacity duration-300"></span>
+        <span id="bar3" class="block w-6 h-0.5 bg-white transition-transform duration-300"></span>
+      </button>
+
+      <!-- Navigation Menu -->
+      <ul id="nav-menu"
+        class="flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-6 text-sm absolute top-16 right-4 md:static md:top-auto md:right-auto bg-[#0f0f0f] border border-gray-700 rounded-md hidden p-4 w-48 md:w-auto md:flex z-40 md:border-0 md:bg-transparent md:p-0">
+        <li><a href="#about" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">About</a></li>
+        <li><a href="#projects" class="hover:text-purple-300 block px-2 md:px-4 md:py-2">Projects</a></li>
+        <li><a href="#contact" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div id="tsparticles"></div>
+  <section class="flex items-center justify-center px-4 pb-20 pt-16 md:pt-16 md:pb-32">
+    <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center xl:pt-32">
+
+      <!-- Kiri: Text -->
+      <div class="flex justify-center md:justify-end">
+        <div class="relative" data-aos="fade-up">
+          <img src="assets/DSC_0245-removebg-preview.png" alt="My Photo"
+            class="w-60 md:w-80 shadow-lg rounded-full object-cover transition-transform duration-500 hover:scale-105 hover:shadow-2xl glow-effect ring-4 ring-purple-300">
+        </div>
+      </div>
+
+      <!-- Kanan: Gambar -->
+      <div class="text-center md:text-left space-y-4">
+        <h1 class="text-5xl md:text-5xl font-bold leading-tight">
+          Hi, I'm <span class="text-purple-500" id="typed-name"></span>
+        </h1>
+        <p id="me" class="text-lg text-gray-400">Frontend Developer & Data Analyst based in Indonesia.</p>
+        <a href="#projects"
+          class="inline-block bg-purple-500 hover:bg-purple-700 text-white font-semibold py-2 px-6 rounded-full shadow transition duration-300">
+          Projects
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about" class="scroll-mt-11 lg:scroll-mt-20 py-12 px-4 max-w-6xl mx-auto md:pb-32">
+    <div class="flex justify-center mb-8">
+      <h2
+        class="text-3xl font-semibold relative inline-block mb-6 after:block after:w-12 after:h-1 after:bg-purple-500 after:mt-4 after:rounded-full after:mx-auto">
+        ABOUT ME
+      </h2>
+    </div>
+    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-x-20 items-start mt-4 md:mt-18 lg:mt-24">
+      <!-- Kolom Kiri -->
+      <div>
+        <h2 class="text-2xl font-semibold mb-4 md:mb-6">Get to Know Me!</h2>
+        <p class="text-gray-400 mt-4 md:text-xl">
+          Hello! My name is Luthfa Sobrian. I graduated from Universitas Amikom Yogyakarta, majoring in Information
+          Technology. I specialize in Frontend Development and Data Analysis, with a strong passion for building
+          beautiful, responsive, and user-friendly web interfaces. I have experience working with HTML, CSS, JavaScript,
+          and frontend frameworks, as well as data analysis tools to derive insights and support data-driven decisions.
+          I’m always eager to learn and grow in both design and data fields.
+        </p>
+      </div>
+      <!-- Kolom Kanan -->
+      <div>
+        <h2 class="text-2xl font-semibold mb-4 md:mb-6 mt-4 md:mt-0">My Skills</h2>
+        <div class="w-full max-w-3xl flex flex-wrap gap-4 mt-0">
+          <!-- Frontend Skills -->
+          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">HTML</div>
+          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">CSS</div>
+          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">JavaScript
+          </div>
+          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">Tailwind
+            CSS</div>
+          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">Git</div>
+
+          <!-- Data Analyst Skills -->
+          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">Python
+          </div>
+          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">SQL</div>
+          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">Excel</div>
+          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">Tableau
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section id="projects" class="py-12 px-4 max-w-6xl mx-auto">
+    <div class="flex justify-center mb-8">
+      <h2
+        class="text-3xl font-semibold relative inline-block mb-6 after:block after:w-12 after:h-1 after:bg-purple-500 after:mt-4 after:rounded-full after:mx-auto">
+        PROJECTS
+      </h2>
+    </div>
+    <h3 class="text-2xl font-semibold mb-4 px-12">Data Analysis Projects</h3>
+    <!-- Project Showcase -->
+    <div onclick="window.open('https://github.com/lspsavage/DataAnalyst_boston-house-price','_blank')"
+      class="group w-full flex flex-col md:flex-row items-center md:items-start justify-center gap-8 cursor-pointer rounded-xl border-2 border-transparent hover:border-purple-500 transition-all duration-300 p-8">
+      <!-- Left: Image -->
+      <div class="flex justify-center w-full md:w-1/2">
+        <img src="assets/1_D6s2K1y7kjE14swcgITB1w.png" alt="Project 1"
+          class="w-full max-w-md rounded-xl shadow-lg object-contain bg-white transition-all duration-300 group-hover:scale-105 border-4 border-purple-600 group-hover:border-purple-400">
+      </div>
+      <!-- Right: Description -->
+      <div
+        class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left mt-6 md:mt-0">
+        <h3 class="text-2xl font-bold mb-2 flex items-end gap-2 relative" style="height:2.5rem;">
+          Boston Housing Price Analysis
+          <span
+            class="inline-block self-end transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+            style="margin-bottom:2px;">
+            <!-- Heroicons outline: arrow-top-right -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10" />
+            </svg>
+          </span>
+        </h3>
+        <p class="text-gray-300 mb-6">
+          Data analysis project where I explored and cleaned real estate data to uncover patterns affecting housing
+          prices. Using Python libraries such as pandas, seaborn, and matplotlib, I performed exploratory data analysis
+          (EDA) and visualized key insights to support data-driven decisions.
+        </p>
+      </div>
+    </div>
+    <h3 class="text-2xl font-semibold mb-4 mt-12 px-12">Frontend Projects</h3>
+    <!-- Project Showcase -->
+    <div onclick="window.open('https://github.com/lspsavage/DataAnalyst_boston-house-price','_blank')"
+      class="group w-full flex flex-col md:flex-row items-center md:items-start justify-center gap-8 cursor-pointer rounded-xl border-2 border-transparent hover:border-purple-500 transition-all duration-300 p-8">
+      <!-- Left: Image -->
+      <div class="flex justify-center w-full md:w-1/2">
+        <img src="assets/file_2025-06-12_22.30.42.png" alt="Project 1"
+          class="w-full max-w-md rounded-xl shadow-lg object-contain bg-white transition-all duration-300 group-hover:scale-105 border-4 border-purple-600 group-hover:border-purple-400">
+      </div>
+      <!-- Right: Description -->
+      <div
+        class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left mt-6 md:mt-0">
+        <h3 class="text-2xl font-bold mb-2 flex items-end gap-2 relative" style="height:2.5rem;">
+          Bread Factory Dashboard
+          <span
+            class="inline-block self-end transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+            style="margin-bottom:2px;">
+            <!-- Heroicons outline: arrow-top-right -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10" />
+            </svg>
+          </span>
+        </h3>
+        <p class="text-gray-300 mb-6">
+          Dashboard project designed to support management monitoring in a bread factory. It features an automated
+          reporting bot and an interactive dashboard to track production, inventory, and operational metrics in real
+          time.
+        </p>
+      </div>
+    </div>
+    <!-- Tambahkan showcase lain di bawah ini jika perlu -->
+    <div class="mt-12 text-center">
+      <a href="https://github.com/lspsavage?tab=repositories" target="_blank"
+        class="inline-block text-white bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl font-semibold transition duration-300 shadow-lg">
+        View All Projects →
+      </a>
+    </div>
+  </section>
+
+
+  <section id="contact" class="py-12 px-4 max-w-4xl mx-auto">
+    <div class="flex justify-center mb-4 md:mb-8">
+      <h2
+        class="text-3xl font-semibold relative inline-block mb-6 after:block after:w-12 after:h-1 after:bg-purple-500 after:mt-4 after:rounded-full after:mx-auto">
+        CONTACT
+      </h2>
+    </div>
+    <div id="contact" class="py-12 px-4 bg-gray-900 text-white">
+      <div class="max-w-xl mx-auto text-center">
+        <p class="mb-6 text-gray-400">Fill out the form below to send me a message.</p>
+
+        <form id="contact-form" action="https://formsubmit.co/luthfa.sobrian.pramasta@gmail.com" method="POST"
+          class="space-y-4">
+          <!-- FormSubmit hidden inputs -->
+          <input type="hidden" name="_captcha" value="false">
+
+          <!-- You can remove _next to stay on page -->
+          <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html"> -->
+
+          <!-- Name -->
+          <input type="text" name="name" placeholder="Your Name" required
+            class="w-full px-4 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+
+          <!-- Email -->
+          <input type="email" name="email" placeholder="Your Email" required
+            class="w-full px-4 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+
+          <!-- Message -->
+          <textarea name="message" rows="5" placeholder="Your Message" required
+            class="w-full px-4 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+
+          <!-- Submit -->
+          <button type="submit"
+            class="w-full bg-purple-600 hover:bg-purple-700 transition text-white font-semibold py-2 rounded">
+            Send Message
+          </button>
+        </form>
+
+        <!-- Success Message -->
+        <div id="success-message" class="mt-4 hidden text-green-400 font-medium">
+          Thank you! Your message has been sent.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-[#181818] text-center py-8 text-gray-400 border-t border-gray-800 flex flex-col items-center gap-6">
+    <div class="flex justify-center gap-2 md:gap-4">
+      <a href="https://www.instagram.com/luthfasp?igsh=MXJjdGVsOWVzMmJhcw==" target="_blank"
+        class="bg-[#232323] hover:bg-purple-600 transition rounded w-12 h-12 flex items-center justify-center">
+        <!-- Instagram SVG -->
+        <svg class="w-6 h-6 text-gray-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <rect width="18" height="18" x="3" y="3" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <path d="M17.5 6.5h.01" />
+        </svg>
+      </a>
+      <a href="https://github.com/lspsavage" target="_blank"
+        class="bg-[#232323] hover:bg-purple-600 transition rounded w-12 h-12 flex items-center justify-center">
+        <!-- Github SVG -->
+        <svg class="w-6 h-6 text-gray-200" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.867 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.528 2.341 1.087 2.91.832.091-.647.35-1.087.636-1.338-2.221-.253-4.555-1.111-4.555-4.944 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.592 1.028 2.683 0 3.842-2.337 4.687-4.566 4.936.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .268.18.579.688.481C19.135 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/luthfa-sobrian-pramasta-0818ba337/" target="_blank"
+        class="bg-[#232323] hover:bg-purple-600 transition rounded w-12 h-12 flex items-center justify-center">
+        <!-- LinkedIn SVG -->
+        <svg class="w-6 h-6 text-gray-200" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.867-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.034 0 3.595 1.997 3.595 4.59v5.606z" />
+        </svg>
+      </a>
+    </div>
+    <div class="my-4">
+      <!-- Rocket SVG -->
+      <svg class="mx-auto w-8 h-8 text-gray-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M12 2C12 2 7 7 7 12c0 2.761 2.239 5 5 5s5-2.239 5-5c0-5-5-10-5-10z" />
+        <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+        <path d="M12 17v4m-2 0h4" stroke-linecap="round" />
+      </svg>
+    </div>
+    <div class="text-sm text-gray-400">
+      &copy; Luthfa Sobrian 2025
+    </div>
+  </footer>
+
+  <!-- My Script -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="dist/script.js"></script>
+</body>
+
+</html>
