@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luthfa Sobrian</title>
   <link href="./dist/output.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-[#0f0f0f] text-white font-sans scroll-smooth m-0 p-0 relative overflow-x-hidden">
@@ -38,6 +39,7 @@
         <li><a href="#about" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">About</a></li>
         <li><a href="#projects" class="hover:text-purple-300 block px-2 md:px-4 md:py-2">Projects</a></li>
         <li><a href="#contact" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">Contact</a></li>
+        <li><a href="#education" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">Education</a></li>
       </ul>
     </div>
   </nav>
@@ -107,11 +109,55 @@
           </div>
           <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">SQL</div>
           <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">Excel</div>
-          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">Tableau
+          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">Power BI
           </div>
         </div>
       </div>
   </section>
+
+  <section id="education" class="py-12 px-4 max-w-6xl mx-auto">
+    <!-- Heading -->
+    <div class="flex justify-center mb-16">
+      <h2
+        class="text-3xl font-semibold relative inline-block after:block after:w-12 after:h-1 after:bg-purple-500 after:mt-4 after:rounded-full after:mx-auto">
+        EDUCATION
+      </h2>
+    </div>
+
+    <!-- Content -->
+    <div class="flex items-start justify-center gap-16 mb-8">
+      <!-- Left Side -->
+      <div class="flex flex-col items-start gap-2">
+        <div class="flex items-center gap-2">
+          <span class="text-purple-500 md:text-xl">
+            <img src="assets/charm_graduate-cap.svg" alt="Graduation Cap" class="w-8 h-8">
+          </span>
+          <h2 class="md:text-2xl font-semibold">
+            <span class="text-purple-500">Amikom</span> Yogyakarta
+          </h2>
+        </div>
+        <p>Sarjana Informatika | 2021 - 2025</p>
+        <p>IPK: 3.97</p>
+      </div>
+
+      <!-- Divider -->
+      <div class="w-[3px] h-36 bg-purple-500 rounded-full"></div>
+
+      <!-- Right Side -->
+      <div class="flex flex-col items-end gap-2 mt-20">
+        <div class="flex items-center gap-2">
+          <h2 class="md:text-2xl font-semibold">
+            SMA N <span class="text-purple-500">1 Mlati</span>
+          </h2>
+          <span class="text-purple-500 md:text-xl">
+            <img src="assets/charm_graduate-cap.svg" alt="Graduation Cap" class="w-8 h-8">
+          </span>
+        </div>
+        <p>IPA | 2018 - 2021</p>
+      </div>
+    </div>
+  </section>
+
 
   <section id="projects" class="py-12 px-4 max-w-6xl mx-auto">
     <div class="flex justify-center mb-8">
@@ -121,7 +167,7 @@
       </h2>
     </div>
     <h3 class="text-2xl font-semibold mb-4 px-12">Data Analysis Projects</h3>
-    <!-- Project Showcase -->
+    <!-- Project Showcase 1 -->
     <div onclick="window.open('https://github.com/lspsavage/DataAnalyst_boston-house-price','_blank')"
       class="group w-full flex flex-col md:flex-row items-center md:items-start justify-center gap-8 cursor-pointer rounded-xl border-2 border-transparent hover:border-purple-500 transition-all duration-300 p-8">
       <!-- Left: Image -->
@@ -148,6 +194,36 @@
           Data analysis project where I explored and cleaned real estate data to uncover patterns affecting housing
           prices. Using Python libraries such as pandas, seaborn, and matplotlib, I performed exploratory data analysis
           (EDA) and visualized key insights to support data-driven decisions.
+        </p>
+      </div>
+    </div>
+    <!-- Project Showcase 2 -->
+    <div onclick="window.open('https://github.com/lspsavage/DataAnalyst_sales-performance','_blank')"
+      class="group w-full flex flex-col md:flex-row items-center md:items-start justify-center gap-8 cursor-pointer rounded-xl border-2 border-transparent hover:border-purple-500 transition-all duration-300 p-8">
+      <!-- Left: Image -->
+      <div class="flex justify-center w-full md:w-1/2">
+        <img src="assets/dashboard_sales.png" alt="Project 2"
+          class="w-full max-w-md rounded-xl shadow-lg object-contain bg-white transition-all duration-300 group-hover:scale-105 border-4 border-purple-600 group-hover:border-purple-400">
+      </div>
+      <!-- Right: Description -->
+      <div
+        class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left mt-6 md:mt-0">
+        <h3 class="text-2xl font-bold mb-2 flex items-end gap-2 relative" style="height:2.5rem;">
+          Sales Performance Analysis
+          <span
+            class="inline-block self-end transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+            style="margin-bottom:2px;">
+            <!-- Heroicons outline: arrow-top-right -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10" />
+            </svg>
+          </span>
+        </h3>
+        <p class="text-gray-300 mb-6">
+          This project analyzes sales performance data using Python (pandas, matplotlib, seaborn) and Power BI. It
+          explores sales trends based on product categories, mall locations, monthly timelines, and age segmentation to
+          generate data-driven business insights and recommendations.
         </p>
       </div>
     </div>

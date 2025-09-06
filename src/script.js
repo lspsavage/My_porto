@@ -85,6 +85,14 @@ ScrollReveal().reveal("#about h2, #about p, #about .w-full > div", {
   easing: "ease-in-out",
 });
 
+ScrollReveal().reveal("#education h2, #education p, #education .w-full > div", {
+  delay: 200,
+  distance: "50px",
+  origin: "bottom",
+  interval: 100,
+  easing: "ease-in-out",
+});
+
 ScrollReveal().reveal("#projects h2, #projects .group", {
   delay: 200,
   distance: "50px",
