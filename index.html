@@ -115,6 +115,7 @@
       </div>
   </section>
 
+  <!-- EDUCATION -->
   <section id="education" class="py-12 px-4 max-w-6xl mx-auto">
     <!-- Heading -->
     <div class="flex justify-center mb-16">
@@ -125,38 +126,118 @@
     </div>
 
     <!-- Content -->
-    <div class="flex items-start justify-center gap-16 mb-8">
-      <!-- Left Side -->
-      <div class="flex flex-col items-start gap-2">
-        <div class="flex items-center gap-2">
-          <span class="text-purple-500 md:text-xl">
-            <img src="assets/charm_graduate-cap.svg" alt="Graduation Cap" class="w-8 h-8">
-          </span>
-          <h2 class="md:text-2xl font-semibold">
-            <span class="text-purple-500">Amikom</span> Yogyakarta
-          </h2>
+    <div class="relative flex flex-col items-center gap-10 md:flex-row md:items-stretch md:justify-center md:gap-16">
+
+      <!-- Card 1 -->
+      <a href="https://amikom.ac.id/" target="_blank" class="edu-card relative flex flex-col gap-3 p-7 rounded-3xl
+          bg-[radial-gradient(125%_125%_at_12%_8%,rgba(168,85,247,0.2),transparent_62%),#13111a]
+          border border-[rgba(168,85,247,0.35)]
+          shadow-[0_22px_45px_-25px_rgba(0,0,0,0.85)]
+          backdrop-blur-[6px]
+          transition duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]
+          hover:-translate-y-3 hover:scale-[1.01]
+          hover:shadow-[0_40px_70px_-35px_rgba(168,85,247,0.55)]
+          hover:border-[rgba(214,188,250,0.85)]
+          hover:bg-[radial-gradient(145%_145%_at_14%_10%,rgba(168,85,247,0.32),transparent_62%),#161125]
+          w-full md:max-w-sm group no-underline text-current">
+
+        <!-- Overlay pengganti ::before -->
+        <span class="absolute inset-0 rounded-3xl opacity-0 transition duration-500 z-0 card-before" style="background: radial-gradient(circle at top left, rgba(168,85,247,0.55), transparent 60%),
+               radial-gradient(circle at bottom right, rgba(59,130,246,0.45), transparent 60%);"></span>
+
+        <!-- Badge -->
+        <span class="relative z-10 inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full
+        text-[0.7rem] tracking-wider uppercase
+        bg-[rgba(168,85,247,0.12)]
+        border border-[rgba(168,85,247,0.28)]
+        text-[rgba(255,255,255,0.82)] self-start">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-[0.9rem] h-[0.9rem]" fill="none" viewBox="0 0 24 24"
+            stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M11.42 2.246a1.5 1.5 0 011.16 0l8.25 3.3a1.5 1.5 0 010 2.808l-8.25 3.3a1.5 1.5 0 01-1.16 0l-8.25-3.3a1.5 1.5 0 010-2.808l8.25-3.3z" />
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3.75 10.203l7.82 3.13a3 3 0 002.86 0l7.82-3.13M12 21.75v-7.5" />
+          </svg>
+          Campus
+        </span>
+
+        <div class="flex items-center gap-3 relative z-10">
+          <img src="assets/charm_graduate-cap.svg" alt="Graduation Cap"
+            class="w-10 h-10 drop-shadow-[0_0_18px_rgba(168,85,247,0.55)]">
+          <h3 class="text-[clamp(1.35rem,2.4vw,1.75rem)] font-semibold text-slate-50">
+            <span class="text-purple-400">Amikom</span> Yogyakarta
+          </h3>
         </div>
-        <p>Sarjana Informatika | 2021 - 2025</p>
-        <p>IPK: 3.97</p>
+
+        <p class="relative z-10 text-[0.95rem] text-slate-200/90">
+          <strong class="text-white font-semibold">Sarjana Informatika</strong> | 2021 - 2025
+        </p>
+        <p class="relative z-10 text-[0.95rem] text-slate-200/90">IPK: 3.97</p>
+
+        <!-- Glow -->
+        <span class="absolute bottom-6 left-6 w-14 h-14 rounded-full
+        bg-[radial-gradient(circle,rgba(168,85,247,0.7),transparent_70%)]
+        blur-[12px] opacity-0 pointer-events-none transition duration-500 card-glow"></span>
+      </a>
+
+      <!-- Connector -->
+      <div class="hidden md:flex flex-col items-center gap-4" aria-hidden="true">
+        <span class="h-4 w-4 rounded-full bg-purple-500 shadow-[0_0_25px_rgba(168,85,247,0.65)]"></span>
+        <span
+          class="w-[3px] h-32 bg-gradient-to-b from-purple-500/90 via-purple-500/40 to-transparent rounded-full"></span>
+        <span class="h-4 w-4 rounded-full bg-purple-500 shadow-[0_0_25px_rgba(168,85,247,0.65)]"></span>
       </div>
 
-      <!-- Divider -->
-      <div class="w-[3px] h-36 bg-purple-500 rounded-full"></div>
+      <!-- Card 2 -->
+      <a href="http://www.sman1mlati.sch.id/" target="_blank" class="edu-card relative flex flex-col gap-3 p-7 rounded-3xl
+      bg-[radial-gradient(125%_125%_at_12%_8%,rgba(168,85,247,0.2),transparent_62%),#13111a]
+      border border-[rgba(168,85,247,0.35)]
+      shadow-[0_22px_45px_-25px_rgba(0,0,0,0.85)]
+      backdrop-blur-[6px]
+      transition duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]
+      hover:-translate-y-3 hover:scale-[1.01]
+      hover:shadow-[0_40px_70px_-35px_rgba(168,85,247,0.55)]
+      hover:border-[rgba(214,188,250,0.85)]
+      hover:bg-[radial-gradient(145%_145%_at_14%_10%,rgba(168,85,247,0.32),transparent_62%),#161125]
+      w-full md:max-w-sm md:text-right md:items-end" data-side="right">
 
-      <!-- Right Side -->
-      <div class="flex flex-col items-end gap-2 mt-20">
-        <div class="flex items-center gap-2">
-          <h2 class="md:text-2xl font-semibold">
-            SMA N <span class="text-purple-500">1 Mlati</span>
-          </h2>
-          <span class="text-purple-500 md:text-xl">
-            <img src="assets/charm_graduate-cap.svg" alt="Graduation Cap" class="w-8 h-8">
-          </span>
+        <span class="absolute inset-0 rounded-3xl opacity-0 transition duration-500 z-0 card-before" style="background: radial-gradient(circle at top left, rgba(168,85,247,0.55), transparent 60%),
+               radial-gradient(circle at bottom right, rgba(59,130,246,0.45), transparent 60%);"></span>
+
+        <span class="relative z-10 inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full
+        text-[0.7rem] tracking-wider uppercase
+        bg-[rgba(168,85,247,0.12)]
+        border border-[rgba(168,85,247,0.28)]
+        text-[rgba(255,255,255,0.82)] self-start md:self-end">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-[0.9rem] h-[0.9rem]" fill="none" viewBox="0 0 24 24"
+            stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8.25 3.75L12 10.5 3.75 6.75 12 3z" />
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3.75 6.75V12m0 0L12 15.75 20.25 12M3.75 12 12 8.25m0 0V3" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15.75v5.25M12 21h9" />
+          </svg>
+          High School
+        </span>
+
+        <div class="flex items-center gap-3 md:flex-row-reverse relative z-10">
+          <img src="assets/charm_graduate-cap.svg" alt="Graduation Cap"
+            class="w-10 h-10 drop-shadow-[0_0_18px_rgba(168,85,247,0.55)]">
+          <h3 class="text-[clamp(1.35rem,2.4vw,1.75rem)] font-semibold text-slate-50">
+            SMA N <span class="text-purple-400">1 Mlati</span>
+          </h3>
         </div>
-        <p>IPA | 2018 - 2021</p>
-      </div>
+
+        <p class="relative z-10 text-[0.95rem] text-slate-200/90">
+          <strong class="text-white font-semibold">IPA</strong> | 2018 - 2021
+        </p>
+
+        <span class="absolute bottom-6 right-6 w-14 h-14 rounded-full
+        bg-[radial-gradient(circle,rgba(168,85,247,0.7),transparent_70%)]
+        blur-[12px] opacity-0 pointer-events-none transition duration-500 card-glow"></span>
+      </a>
     </div>
   </section>
+
 
 
   <section id="projects" class="py-12 px-4 max-w-6xl mx-auto">
@@ -166,99 +247,146 @@
         PROJECTS
       </h2>
     </div>
+
     <h3 class="text-2xl font-semibold mb-4 px-12">Data Analysis Projects</h3>
-    <!-- Project Showcase 1 -->
-    <div onclick="window.open('https://github.com/lspsavage/DataAnalyst_boston-house-price','_blank')"
-      class="group w-full flex flex-col md:flex-row items-center md:items-start justify-center gap-8 cursor-pointer rounded-xl border-2 border-transparent hover:border-purple-500 transition-all duration-300 p-8">
-      <!-- Left: Image -->
-      <div class="flex justify-center w-full md:w-1/2">
-        <img src="assets/dashboard_boston.png" alt="Project 1"
+
+    <!-- Project Card 1 -->
+    <article onclick="window.open('https://github.com/lspsavage/DataAnalyst_boston-house-price','_blank')" class="project-card relative flex flex-col md:flex-row items-center gap-8 cursor-pointer rounded-3xl
+           bg-[radial-gradient(125%_125%_at_12%_8%,rgba(168,85,247,0.2),transparent_62%),#13111a]
+           border border-[rgba(168,85,247,0.35)]
+           shadow-[0_22px_45px_-25px_rgba(0,0,0,0.85)]
+           backdrop-blur-[6px]
+           transition duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]
+           hover:-translate-y-3 hover:scale-[1.01]
+           hover:shadow-[0_40px_70px_-35px_rgba(168,85,247,0.55)]
+           hover:border-[rgba(214,188,250,0.85)]
+           hover:bg-[radial-gradient(145%_145%_at_14%_10%,rgba(168,85,247,0.32),transparent_62%),#161125]
+           p-8 mb-10 group">
+
+      <span class="absolute inset-0 rounded-3xl opacity-0 transition duration-500 z-0 project-before" style="background: radial-gradient(circle at top left, rgba(168,85,247,0.55), transparent 60%),
+             radial-gradient(circle at bottom right, rgba(59,130,246,0.45), transparent 60%);"></span>
+
+      <div class="flex justify-center w-full md:w-1/2 relative z-10">
+        <img src="assets/dashboard_boston.png" alt="Boston Housing"
           class="w-full max-w-md rounded-xl shadow-lg object-contain bg-white transition-all duration-300 group-hover:scale-105 border-4 border-purple-600 group-hover:border-purple-400">
       </div>
-      <!-- Right: Description -->
+
       <div
-        class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left mt-6 md:mt-0">
-        <h3 class="text-2xl font-bold mb-2 flex items-end gap-2 relative" style="height:2.5rem;">
+        class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left mt-6 md:mt-0 relative z-10">
+        <h3 class="text-2xl font-bold mb-2 flex items-end gap-2">
           Boston Housing Price Analysis
           <span
-            class="inline-block self-end transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
-            style="margin-bottom:2px;">
-            <!-- Heroicons outline: arrow-top-right -->
+            class="inline-block self-end transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10" />
             </svg>
           </span>
         </h3>
-        <p class="text-gray-300 mb-6">
+        <p class="text-gray-300">
           Data analysis project where I explored and cleaned real estate data to uncover patterns affecting housing
-          prices. Using Python libraries such as pandas, seaborn, and matplotlib, I performed exploratory data analysis
-          (EDA) and visualized key insights to support data-driven decisions.
+          prices. Using Python (pandas, seaborn, matplotlib) I performed EDA and visualized insights to support
+          decisions.
         </p>
       </div>
-    </div>
-    <!-- Project Showcase 2 -->
-    <div onclick="window.open('https://github.com/lspsavage/DataAnalyst_sales-performance','_blank')"
-      class="group w-full flex flex-col md:flex-row items-center md:items-start justify-center gap-8 cursor-pointer rounded-xl border-2 border-transparent hover:border-purple-500 transition-all duration-300 p-8">
-      <!-- Left: Image -->
-      <div class="flex justify-center w-full md:w-1/2">
-        <img src="assets/dashboard_sales.png" alt="Project 2"
+
+      <span class="absolute bottom-6 right-6 w-14 h-14 rounded-full
+      bg-[radial-gradient(circle,rgba(168,85,247,0.7),transparent_70%)]
+      blur-[12px] opacity-0 pointer-events-none transition duration-500 project-glow"></span>
+    </article>
+
+    <!-- Project Card 2 -->
+    <article onclick="window.open('https://github.com/lspsavage/DataAnalyst_sales-performance','_blank')" class="project-card relative flex flex-col md:flex-row items-center gap-8 cursor-pointer rounded-3xl
+           bg-[radial-gradient(125%_125%_at_12%_8%,rgba(168,85,247,0.2),transparent_62%),#13111a]
+           border border-[rgba(168,85,247,0.35)]
+           shadow-[0_22px_45px_-25px_rgba(0,0,0,0.85)]
+           backdrop-blur-[6px]
+           transition duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]
+           hover:-translate-y-3 hover:scale-[1.01]
+           hover:shadow-[0_40px_70px_-35px_rgba(168,85,247,0.55)]
+           hover:border-[rgba(214,188,250,0.85)]
+           hover:bg-[radial-gradient(145%_145%_at_14%_10%,rgba(168,85,247,0.32),transparent_62%),#161125]
+           p-8 mb-10 group">
+
+      <span class="absolute inset-0 rounded-3xl opacity-0 transition duration-500 z-0 project-before" style="background: radial-gradient(circle at top left, rgba(168,85,247,0.55), transparent 60%),
+             radial-gradient(circle at bottom right, rgba(59,130,246,0.45), transparent 60%);"></span>
+
+      <div class="flex justify-center w-full md:w-1/2 relative z-10">
+        <img src="assets/dashboard_sales.png" alt="Sales Performance"
           class="w-full max-w-md rounded-xl shadow-lg object-contain bg-white transition-all duration-300 group-hover:scale-105 border-4 border-purple-600 group-hover:border-purple-400">
       </div>
-      <!-- Right: Description -->
+
       <div
-        class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left mt-6 md:mt-0">
-        <h3 class="text-2xl font-bold mb-2 flex items-end gap-2 relative" style="height:2.5rem;">
+        class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left mt-6 md:mt-0 relative z-10">
+        <h3 class="text-2xl font-bold mb-2 flex items-end gap-2">
           Sales Performance Analysis
           <span
-            class="inline-block self-end transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
-            style="margin-bottom:2px;">
-            <!-- Heroicons outline: arrow-top-right -->
+            class="inline-block self-end transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10" />
             </svg>
           </span>
         </h3>
-        <p class="text-gray-300 mb-6">
+        <p class="text-gray-300">
           This project analyzes sales performance data using Python (pandas, matplotlib, seaborn) and Power BI. It
-          explores sales trends based on product categories, mall locations, monthly timelines, and age segmentation to
-          generate data-driven business insights and recommendations.
+          explores sales trends by category, location, and demographics to generate insights and recommendations.
         </p>
       </div>
-    </div>
+
+      <span class="absolute bottom-6 right-6 w-14 h-14 rounded-full
+      bg-[radial-gradient(circle,rgba(168,85,247,0.7),transparent_70%)]
+      blur-[12px] opacity-0 pointer-events-none transition duration-500 project-glow"></span>
+    </article>
+
     <h3 class="text-2xl font-semibold mb-4 mt-12 px-12">Frontend Projects</h3>
-    <!-- Project Showcase -->
-    <div onclick="window.open('https://github.com/lspsavage/DataAnalyst_boston-house-price','_blank')"
-      class="group w-full flex flex-col md:flex-row items-center md:items-start justify-center gap-8 cursor-pointer rounded-xl border-2 border-transparent hover:border-purple-500 transition-all duration-300 p-8">
-      <!-- Left: Image -->
-      <div class="flex justify-center w-full md:w-1/2">
-        <img src="assets/file_2025-06-12_22.30.42.png" alt="Project 1"
+
+    <!-- Project Card 3 -->
+    <article onclick="window.open('https://github.com/lspsavage/DataAnalyst_boston-house-price','_blank')" class="project-card relative flex flex-col md:flex-row items-center gap-8 cursor-pointer rounded-3xl
+           bg-[radial-gradient(125%_125%_at_12%_8%,rgba(168,85,247,0.2),transparent_62%),#13111a]
+           border border-[rgba(168,85,247,0.35)]
+           shadow-[0_22px_45px_-25px_rgba(0,0,0,0.85)]
+           backdrop-blur-[6px]
+           transition duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]
+           hover:-translate-y-3 hover:scale-[1.01]
+           hover:shadow-[0_40px_70px_-35px_rgba(168,85,247,0.55)]
+           hover:border-[rgba(214,188,250,0.85)]
+           hover:bg-[radial-gradient(145%_145%_at_14%_10%,rgba(168,85,247,0.32),transparent_62%),#161125]
+           p-8 mb-10 group">
+
+      <span class="absolute inset-0 rounded-3xl opacity-0 transition duration-500 z-0 project-before" style="background: radial-gradient(circle at top left, rgba(168,85,247,0.55), transparent 60%),
+             radial-gradient(circle at bottom right, rgba(59,130,246,0.45), transparent 60%);"></span>
+
+      <div class="flex justify-center w-full md:w-1/2 relative z-10">
+        <img src="assets/file_2025-06-12_22.30.42.png" alt="Bread Factory Dashboard"
           class="w-full max-w-md rounded-xl shadow-lg object-contain bg-white transition-all duration-300 group-hover:scale-105 border-4 border-purple-600 group-hover:border-purple-400">
       </div>
-      <!-- Right: Description -->
+
       <div
-        class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left mt-6 md:mt-0">
-        <h3 class="text-2xl font-bold mb-2 flex items-end gap-2 relative" style="height:2.5rem;">
+        class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left mt-6 md:mt-0 relative z-10">
+        <h3 class="text-2xl font-bold mb-2 flex items-end gap-2">
           Bread Factory Dashboard
           <span
-            class="inline-block self-end transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
-            style="margin-bottom:2px;">
-            <!-- Heroicons outline: arrow-top-right -->
+            class="inline-block self-end transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10" />
             </svg>
           </span>
         </h3>
-        <p class="text-gray-300 mb-6">
-          Dashboard project designed to support management monitoring in a bread factory. It features an automated
-          reporting bot and an interactive dashboard to track production, inventory, and operational metrics in real
-          time.
+        <p class="text-gray-300">
+          Dashboard project designed for bread factory management. Features an automated reporting bot and an
+          interactive
+          dashboard to track production, inventory, and operations in real time.
         </p>
       </div>
-    </div>
-    <!-- Tambahkan showcase lain di bawah ini jika perlu -->
+
+      <span class="absolute bottom-6 right-6 w-14 h-14 rounded-full
+      bg-[radial-gradient(circle,rgba(168,85,247,0.7),transparent_70%)]
+      blur-[12px] opacity-0 pointer-events-none transition duration-500 project-glow"></span>
+    </article>
+
+    <!-- Link ke semua repos -->
     <div class="mt-12 text-center">
       <a href="https://github.com/lspsavage?tab=repositories" target="_blank"
         class="inline-block text-white bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl font-semibold transition duration-300 shadow-lg">
@@ -266,6 +394,7 @@
       </a>
     </div>
   </section>
+
 
 
   <section id="contact" class="py-12 px-4 max-w-4xl mx-auto">

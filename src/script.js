@@ -212,3 +212,48 @@ if (window.innerWidth > 768) {
 } else {
   document.getElementById("typed-name").innerText = "Luthfa Sobrian";
 }
+
+// Card hover effect for Education section
+document.querySelectorAll(".edu-card").forEach((card) => {
+  const beforeEl = card.querySelector(".card-before");
+  const glowEl = card.querySelector(".card-glow");
+
+  card.addEventListener("mouseenter", () => {
+    beforeEl.style.opacity = 1;
+    glowEl.style.opacity = 1;
+  });
+  card.addEventListener("mouseleave", () => {
+    beforeEl.style.opacity = 0;
+    glowEl.style.opacity = 0;
+  });
+  card.addEventListener("focusin", () => {
+    beforeEl.style.opacity = 1;
+    glowEl.style.opacity = 1;
+  });
+  card.addEventListener("focusout", () => {
+    beforeEl.style.opacity = 0;
+    glowEl.style.opacity = 0;
+  });
+});
+
+document.querySelectorAll(".project-card").forEach((card) => {
+  const beforeEl = card.querySelector(".project-before");
+  const glowEl = card.querySelector(".project-glow");
+
+  card.addEventListener("mouseenter", () => {
+    beforeEl.style.opacity = 1;
+    glowEl.style.opacity = 1;
+  });
+  card.addEventListener("mouseleave", () => {
+    beforeEl.style.opacity = 0;
+    glowEl.style.opacity = 0;
+  });
+  card.addEventListener("focusin", () => {
+    beforeEl.style.opacity = 1;
+    glowEl.style.opacity = 1;
+  });
+  card.addEventListener("focusout", () => {
+    beforeEl.style.opacity = 0;
+    glowEl.style.opacity = 0;
+  });
+});
