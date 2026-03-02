@@ -53,7 +53,8 @@
       position: sticky;
       top: 0;
       height: 100vh;
-      overflow: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
 
     .left-toggle {
@@ -105,11 +106,40 @@
       color: #f4f4ff;
     }
 
+    .icon-button {
+      border: 1px solid #2a2a3c;
+      background: #171724;
+      color: #d9d9f4;
+      border-radius: 10px;
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .icon-button:hover {
+      border-color: rgba(124, 93, 255, 0.42);
+      background: #1c1c2c;
+      color: #f4f4ff;
+    }
+
     .brand-title {
       font-weight: 800;
       font-size: 1.35rem;
       color: var(--accent);
       letter-spacing: 0.01em;
+    }
+
+    .mobile-topbar {
+      display: none;
+    }
+
+    .mobile-backdrop {
+      display: none;
     }
 
     .search-wrap {
@@ -165,6 +195,8 @@
       cursor: pointer;
       font: inherit;
       width: 100%;
+      white-space: normal;
+      word-break: break-word;
       transition: 0.2s ease;
     }
 
@@ -346,22 +378,71 @@
       }
 
       .left {
-        position: static;
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid var(--line);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: min(86vw, 320px);
+        height: 100vh;
+        border-right: 1px solid var(--line);
+        border-bottom: none;
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+        z-index: 40;
+      }
+
+      .layout.sidebar-open .left {
+        transform: translateX(0);
+      }
+
+      .left .brand {
+        display: none;
       }
 
       .search-wrap {
         position: static;
+        top: auto;
+        background: transparent;
+        padding-top: 8px;
       }
 
       .left-toggle {
         display: none;
       }
 
+      .mobile-topbar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 14px;
+        position: sticky;
+        top: 0;
+        z-index: 35;
+        border-bottom: 1px solid var(--line);
+        background: rgba(14, 14, 20, 0.9);
+        backdrop-filter: blur(8px);
+      }
+
+      .mobile-topbar-title {
+        font-weight: 800;
+        font-size: 1.2rem;
+        color: var(--accent);
+        flex: 1;
+      }
+
+      .mobile-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(5, 7, 12, 0.38);
+        backdrop-filter: blur(4px);
+        z-index: 30;
+      }
+
+      .layout.sidebar-open .mobile-backdrop {
+        display: block;
+      }
+
       .center {
-        padding: 24px 18px 34px;
+        padding: 18px 18px 34px;
       }
 
       article {
@@ -373,6 +454,31 @@
 
 <body>
   <div class="layout">
+    <header class="mobile-topbar">
+      <a class="back-button" href="./index.html" aria-label="Back to home" title="Back to home">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+      <span class="mobile-topbar-title">Pramzt</span>
+      <button id="mobile-search-btn" class="icon-button" type="button" aria-label="Open search" title="Open search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2" />
+          <path d="M16 16L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+      <button id="mobile-sidebar-toggle" class="icon-button" type="button" aria-label="Toggle sidebar"
+        aria-expanded="false" title="Toggle sidebar">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3.5" y="4.5" width="17" height="15" rx="2.5" stroke="currentColor" stroke-width="1.8" />
+          <path d="M9 4.5V19.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+      </button>
+    </header>
+
+    <div id="mobile-backdrop" class="mobile-backdrop" aria-hidden="true"></div>
+
     <aside class="left">
       <div class="brand">
         <a class="back-button" href="./index.html" aria-label="Back to home" title="Back to home">
@@ -423,6 +529,11 @@
     const sidebarSectionsEl = document.getElementById("sidebar-sections");
     const layoutEl = document.querySelector(".layout");
     const sidebarToggleBtn = document.getElementById("sidebar-toggle");
+    const mobileSidebarToggleBtn = document.getElementById("mobile-sidebar-toggle");
+    const mobileSearchBtn = document.getElementById("mobile-search-btn");
+    const mobileBackdropEl = document.getElementById("mobile-backdrop");
+
+    const isMobileView = () => window.matchMedia("(max-width: 900px)").matches;
 
     const slugify = (text) => text
       .toLowerCase()
@@ -446,6 +557,12 @@
       document.querySelectorAll(".doc-item").forEach((item) => {
         item.classList.toggle("active", item.dataset.file === file);
       });
+    };
+
+    const setMobileSidebarState = (open) => {
+      layoutEl.classList.toggle("sidebar-open", open);
+      mobileSidebarToggleBtn.setAttribute("aria-expanded", String(open));
+      document.body.style.overflow = open ? "hidden" : "";
     };
 
     const buildSidebar = (filter = "") => {
@@ -488,6 +605,7 @@
             markActiveDoc(doc.file);
             setDocInQuery(doc.file);
             fetchDoc(doc.file);
+            if (isMobileView()) setMobileSidebarState(false);
           });
           list.appendChild(btn);
         });
@@ -591,10 +709,35 @@
       setDocInQuery(current);
       markActiveDoc(current);
       fetchDoc(current);
+      setMobileSidebarState(false);
 
       sidebarToggleBtn.addEventListener("click", () => {
         const collapsed = layoutEl.classList.toggle("sidebar-collapsed");
         sidebarToggleBtn.setAttribute("aria-expanded", String(!collapsed));
+      });
+
+      mobileSidebarToggleBtn.addEventListener("click", () => {
+        const willOpen = !layoutEl.classList.contains("sidebar-open");
+        setMobileSidebarState(willOpen);
+      });
+
+      mobileSearchBtn.addEventListener("click", () => {
+        setMobileSidebarState(true);
+        setTimeout(() => searchEl.focus(), 50);
+      });
+
+      mobileBackdropEl.addEventListener("click", () => setMobileSidebarState(false));
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && layoutEl.classList.contains("sidebar-open")) {
+          setMobileSidebarState(false);
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (!isMobileView() && layoutEl.classList.contains("sidebar-open")) {
+          setMobileSidebarState(false);
+        }
       });
 
       searchEl.addEventListener("input", (event) => {
