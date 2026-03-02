@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+  <style>
+    :root {
+      --bg: #0e0e14;
+      --panel: #12121a;
+      --panel-2: #10101a;
+      --line: #1f1f2c;
+      --text: #f4f4ff;
+      --muted: #a3a3c7;
+      --accent: #7c5dff;
+      --accent-soft: rgba(124, 93, 255, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        radial-gradient(1100px 500px at 80% -15%, rgba(124, 93, 255, 0.18), transparent 65%),
+        radial-gradient(700px 350px at 20% -20%, rgba(56, 189, 248, 0.12), transparent 70%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, sans-serif;
+    }
+
+    .layout {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr) 300px;
+      gap: 0;
+    }
+
+    .left {
+      border-right: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(18, 18, 26, 0.96), rgba(14, 14, 22, 0.96));
+      padding: 18px 14px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+    }
+
+    .left-toggle {
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #2a2a3c;
+      border-radius: 8px;
+      background: #171724;
+      color: #d9d9f4;
+      cursor: pointer;
+      transition: 0.2s ease;
+      margin-left: auto;
+    }
+
+    .left-toggle:hover {
+      border-color: rgba(124, 93, 255, 0.42);
+      background: #1c1c2c;
+      color: #f4f4ff;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 6px 8px 14px;
+      width: 100%;
+    }
+
+    .back-button {
+      border: 1px solid #2a2a3c;
+      background: #171724;
+      color: #d9d9f4;
+      border-radius: 10px;
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .back-button:hover {
+      border-color: rgba(124, 93, 255, 0.42);
+      background: #1c1c2c;
+      color: #f4f4ff;
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--accent);
+      letter-spacing: 0.01em;
+    }
+
+    .search-wrap {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(180deg, rgba(18, 18, 26, 0.98), rgba(18, 18, 26, 0.88));
+      padding: 2px 6px 14px;
+      z-index: 1;
+    }
+
+    .search {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--panel-2);
+      color: var(--text);
+      padding: 10px 12px;
+      outline: none;
+      font: inherit;
+    }
+
+    .search:focus {
+      border-color: rgba(124, 93, 255, 0.5);
+      box-shadow: 0 0 0 3px rgba(124, 93, 255, 0.18);
+    }
+
+    .section {
+      margin-top: 14px;
+    }
+
+    .section-title {
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0 8px;
+      margin-bottom: 6px;
+    }
+
+    .doc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .doc-item {
+      border: 1px solid transparent;
+      color: #c9c9ec;
+      background: transparent;
+      border-radius: 10px;
+      padding: 9px 10px;
+      text-align: left;
+      cursor: pointer;
+      font: inherit;
+      width: 100%;
+      transition: 0.2s ease;
+    }
+
+    .doc-item:hover {
+      border-color: #2a2a3c;
+      background: #181826;
+      color: #f4f4ff;
+    }
+
+    .doc-item.active {
+      background: var(--accent-soft);
+      border-color: rgba(124, 93, 255, 0.42);
+      color: #f4f4ff;
+    }
+
+    .empty-search {
+      color: var(--muted);
+      font-size: 0.92rem;
+      padding: 8px 10px;
+    }
+
+    .center {
+      padding: 34px min(5vw, 64px) 42px;
+      min-width: 0;
+    }
+
+    .status {
+      color: var(--muted);
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+
+    article {
+      max-width: 860px;
+      margin-left: clamp(8px, 2.4vw, 36px);
+      line-height: 1.78;
+      font-size: 1.03rem;
+    }
+
+    article h1,
+    article h2,
+    article h3 {
+      line-height: 1.3;
+      margin-top: 2rem;
+      margin-bottom: 0.7rem;
+      scroll-margin-top: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    article h1 {
+      font-size: clamp(1.9rem, 2.9vw, 2.7rem);
+      margin-top: 0.4rem;
+    }
+
+    article h2 {
+      font-size: clamp(1.4rem, 2.1vw, 1.9rem);
+    }
+
+    article h3 {
+      font-size: clamp(1.12rem, 1.8vw, 1.4rem);
+    }
+
+    article p,
+    article li {
+      color: #d8d8ee;
+    }
+
+    article a {
+      color: #9f8cff;
+      text-underline-offset: 3px;
+    }
+
+    article code {
+      background: #121222;
+      border: 1px solid #2a2a42;
+      border-radius: 6px;
+      padding: 0.08rem 0.35rem;
+      font-size: 0.92em;
+    }
+
+    article pre {
+      background: #10101a;
+      border: 1px solid #2a2a42;
+      border-radius: 12px;
+      padding: 16px;
+      overflow-x: auto;
+    }
+
+    article pre code {
+      border: none;
+      background: transparent;
+      padding: 0;
+    }
+
+    .right {
+      border-left: 1px solid var(--line);
+      padding: 22px 16px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+      background: linear-gradient(180deg, rgba(18, 18, 26, 0.45), rgba(18, 18, 26, 0.72));
+    }
+
+    .toc-title {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .toc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-left: 1px solid #2b2b3f;
+      padding-left: 12px;
+    }
+
+    .toc-list a {
+      color: #b7b7d7;
+      text-decoration: none;
+      font-size: 0.92rem;
+      line-height: 1.35;
+    }
+
+    .toc-list a.depth-3 {
+      padding-left: 12px;
+      font-size: 0.89rem;
+      color: #9c9cbe;
+    }
+
+    .toc-list a.active {
+      color: #f4f4ff;
+      font-weight: 600;
+    }
+
+    @media (min-width: 901px) {
+      .layout.sidebar-collapsed {
+        grid-template-columns: 110px minmax(0, 1fr) 300px;
+      }
+
+      .layout.sidebar-collapsed .search-wrap,
+      .layout.sidebar-collapsed #sidebar-sections,
+      .layout.sidebar-collapsed .brand-title {
+        display: none;
+      }
+
+      .layout.sidebar-collapsed .brand {
+        justify-content: space-between;
+        gap: 0;
+        margin: 6px 0 14px;
+      }
+
+      .layout.sidebar-collapsed .back-button {
+        margin: 0;
+      }
+
+    }
+
+    @media (max-width: 1200px) {
+      .layout {
+        grid-template-columns: 260px minmax(0, 1fr);
+      }
+
+      .layout.sidebar-collapsed {
+        grid-template-columns: 110px minmax(0, 1fr);
+      }
+
+      .right {
+        display: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        display: block;
+      }
+
+      .left {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .search-wrap {
+        position: static;
+      }
+
+      .left-toggle {
+        display: none;
+      }
+
+      .center {
+        padding: 24px 18px 34px;
+      }
+
+      article {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+    <aside class="left">
+      <div class="brand">
+        <a class="back-button" href="./index.html" aria-label="Back to home" title="Back to home">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+        <span class="brand-title">Pramzt</span>
+        <button id="sidebar-toggle" class="left-toggle" type="button" aria-label="Toggle sidebar" aria-expanded="true"
+          title="Toggle sidebar">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3.5" y="4.5" width="17" height="15" rx="2.5" stroke="currentColor" stroke-width="1.8" />
+            <path d="M9 4.5V19.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="search-wrap">
+        <input id="doc-search" class="search" type="search" placeholder="Search documentation..." />
+      </div>
+
+      <div id="sidebar-sections"></div>
+    </aside>
+
+    <main class="center">
+      <div id="status" class="status">Loading documentation...</div>
+      <article id="doc-content" aria-live="polite"></article>
+    </main>
+
+    <aside class="right">
+      <div class="toc-title">On this page</div>
+      <nav id="toc-list" class="toc-list"></nav>
+    </aside>
+  </div>
+
+  <script>
+    const docs = [
+      { section: "Intro", label: "Getting Started", file: "getting_started.md" },
+      { section: "Dokumentasi", label: "Portofolio", file: "Portofolio.md" }
+    ];
+
+    const DEFAULT_DOC = "getting_started.md";
+    const statusEl = document.getElementById("status");
+    const contentEl = document.getElementById("doc-content");
+    const tocEl = document.getElementById("toc-list");
+    const searchEl = document.getElementById("doc-search");
+    const sidebarSectionsEl = document.getElementById("sidebar-sections");
+    const layoutEl = document.querySelector(".layout");
+    const sidebarToggleBtn = document.getElementById("sidebar-toggle");
+
+    const slugify = (text) => text
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/\s+/g, "-");
+
+    const getDocFromQuery = () => {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("doc") || DEFAULT_DOC;
+    };
+
+    const setDocInQuery = (file) => {
+      const params = new URLSearchParams(window.location.search);
+      params.set("doc", file);
+      const newUrl = `${window.location.pathname}?${params.toString()}`;
+      window.history.replaceState({}, "", newUrl);
+    };
+
+    const markActiveDoc = (file) => {
+      document.querySelectorAll(".doc-item").forEach((item) => {
+        item.classList.toggle("active", item.dataset.file === file);
+      });
+    };
+
+    const buildSidebar = (filter = "") => {
+      const lower = filter.toLowerCase().trim();
+      const grouped = new Map();
+
+      docs.forEach((doc) => {
+        if (lower && !`${doc.label} ${doc.file} ${doc.section}`.toLowerCase().includes(lower)) {
+          return;
+        }
+        if (!grouped.has(doc.section)) grouped.set(doc.section, []);
+        grouped.get(doc.section).push(doc);
+      });
+
+      sidebarSectionsEl.innerHTML = "";
+
+      if (grouped.size === 0) {
+        sidebarSectionsEl.innerHTML = `<div class="empty-search">No document found.</div>`;
+        return;
+      }
+
+      grouped.forEach((items, section) => {
+        const sectionWrap = document.createElement("section");
+        sectionWrap.className = "section";
+
+        const title = document.createElement("div");
+        title.className = "section-title";
+        title.textContent = section;
+        sectionWrap.appendChild(title);
+
+        const list = document.createElement("div");
+        list.className = "doc-list";
+
+        items.forEach((doc) => {
+          const btn = document.createElement("button");
+          btn.className = "doc-item";
+          btn.textContent = doc.label;
+          btn.dataset.file = doc.file;
+          btn.addEventListener("click", () => {
+            markActiveDoc(doc.file);
+            setDocInQuery(doc.file);
+            fetchDoc(doc.file);
+          });
+          list.appendChild(btn);
+        });
+
+        sectionWrap.appendChild(list);
+        sidebarSectionsEl.appendChild(sectionWrap);
+      });
+
+      markActiveDoc(getDocFromQuery());
+    };
+
+    const setHeadingIds = () => {
+      const headings = contentEl.querySelectorAll("h1, h2, h3");
+      const used = new Map();
+
+      headings.forEach((heading) => {
+        const base = slugify(heading.textContent || "section") || "section";
+        const count = used.get(base) || 0;
+        used.set(base, count + 1);
+        heading.id = count ? `${base}-${count}` : base;
+      });
+    };
+
+    const buildToc = () => {
+      tocEl.innerHTML = "";
+      const headings = contentEl.querySelectorAll("h1, h2, h3");
+
+      if (!headings.length) {
+        tocEl.innerHTML = `<span class="empty-search">No headings</span>`;
+        return;
+      }
+
+      headings.forEach((heading) => {
+        const link = document.createElement("a");
+        link.href = `#${heading.id}`;
+        link.textContent = heading.textContent || heading.id;
+        if (heading.tagName === "H3") link.classList.add("depth-3");
+        link.addEventListener("click", () => {
+          document.querySelectorAll(".toc-list a").forEach((a) => a.classList.remove("active"));
+          link.classList.add("active");
+        });
+        tocEl.appendChild(link);
+      });
+
+      const first = tocEl.querySelector("a");
+      if (first) first.classList.add("active");
+    };
+
+    const renderMarkdown = (markdown) => {
+      if (!window.marked) throw new Error("Markdown parser (marked) failed to load");
+
+      contentEl.innerHTML = marked.parse(markdown, {
+        gfm: true,
+        breaks: true,
+        headerIds: false
+      });
+
+      setHeadingIds();
+      buildToc();
+
+      if (window.hljs) {
+        contentEl.querySelectorAll("pre code").forEach((block) => {
+          hljs.highlightElement(block);
+        });
+      }
+    };
+
+    const tryFetchText = async (paths) => {
+      for (const path of paths) {
+        try {
+          const response = await fetch(path);
+          if (response.ok) return await response.text();
+        } catch (_) {
+          // Continue to next path.
+        }
+      }
+      throw new Error(`File not found in paths: ${paths.join(", ")}`);
+    };
+
+    const fetchDoc = async (file) => {
+      statusEl.textContent = `Loading ${file}...`;
+      contentEl.innerHTML = "";
+      tocEl.innerHTML = "";
+
+      try {
+        const markdown = await tryFetchText([file, `./${file}`, `./markdown/${file}`]);
+        renderMarkdown(markdown);
+        statusEl.textContent = `Viewing ${file}`;
+      } catch (error) {
+        statusEl.textContent = "Failed to load document";
+        contentEl.innerHTML = `
+          <p>Unable to load <strong>${file}</strong>.</p>
+          <p><code>${error.message}</code></p>
+        `;
+      }
+    };
+
+    const init = () => {
+      buildSidebar();
+      const current = getDocFromQuery();
+      setDocInQuery(current);
+      markActiveDoc(current);
+      fetchDoc(current);
+
+      sidebarToggleBtn.addEventListener("click", () => {
+        const collapsed = layoutEl.classList.toggle("sidebar-collapsed");
+        sidebarToggleBtn.setAttribute("aria-expanded", String(!collapsed));
+      });
+
+      searchEl.addEventListener("input", (event) => {
+        buildSidebar(event.target.value);
+      });
+    };
+
+    document.addEventListener("DOMContentLoaded", init);
+  </script>
+</body>
+
+</html>

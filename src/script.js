@@ -2,26 +2,28 @@
 const form = document.getElementById("contact-form");
 const successMessage = document.getElementById("success-message");
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault(); // prevent default redirect
+if (form && successMessage) {
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // prevent default redirect
 
-  const formData = new FormData(form);
+    const formData = new FormData(form);
 
-  fetch(form.action, {
-    method: "POST",
-    body: formData,
-    headers: {
-      Accept: "application/json",
-    },
-  }).then((response) => {
-    if (response.ok) {
-      successMessage.classList.remove("hidden");
-      form.reset();
-    } else {
-      alert("Oops! There was a problem submitting your form");
-    }
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    }).then((response) => {
+      if (response.ok) {
+        successMessage.classList.remove("hidden");
+        form.reset();
+      } else {
+        alert("Oops! There was a problem submitting your form");
+      }
+    });
   });
-});
+}
 
 // Mengambil elemen cursor glow
 const glow = document.getElementById("cursor-glow");
@@ -199,6 +201,7 @@ tsParticles.load("tsparticles", {
 });
 
 // Typing effect
+const typedTarget = document.getElementById("typed-name");
 const options = {
   strings: ["Luthfa Sobrian", "Frontend Developer", "Data Analyst"],
   typeSpeed: 50,
@@ -206,13 +209,13 @@ const options = {
   loop: true,
 };
 
-// Only enable typing effect on screens larger than 768px
-if (window.innerWidth > 768) {
-  new Typed("#typed-name", options);
-} else {
-  document.getElementById("typed-name").innerText = "Luthfa Sobrian";
+if (typedTarget) {
+  if (window.innerWidth > 768) {
+    new Typed("#typed-name", options);
+  } else {
+    typedTarget.innerText = options.strings[0];
+  }
 }
-
 // Card hover effect for Education section
 document.querySelectorAll(".edu-card").forEach((card) => {
   const beforeEl = card.querySelector(".card-before");
@@ -235,6 +238,85 @@ document.querySelectorAll(".edu-card").forEach((card) => {
     glowEl.style.opacity = 0;
   });
 });
+
+// Filtering for the Project page buttons/cards
+const projectFilterButtons = document.querySelectorAll("[data-project-filter]");
+const filterableProjectCards = document.querySelectorAll("[data-project-category]");
+const projectGrid = document.getElementById("project-grid");
+
+if (projectFilterButtons.length && filterableProjectCards.length) {
+  const activeFilterClasses = ["ring-2", "ring-purple-400/60", "ring-offset-2", "ring-offset-[#0f0f0f]"];
+  const gridFadeClasses = ["opacity-0", "-translate-y-2", "pointer-events-none"];
+  let filterTimeoutId = null;
+  let releaseTimeoutId = null;
+  let currentFilter = null;
+
+  const setActiveButton = (activeButton) => {
+    projectFilterButtons.forEach((button) => {
+      button.classList.remove(...activeFilterClasses);
+      button.setAttribute("aria-pressed", button === activeButton ? "true" : "false");
+    });
+    activeButton.classList.add(...activeFilterClasses);
+  };
+
+  const filterProjects = (filter) => {
+    const normalizedFilter = (filter || "all").toLowerCase();
+    filterableProjectCards.forEach((card) => {
+      const categories = card.dataset.projectCategory
+        .split(",")
+        .map((cat) => cat.trim().toLowerCase())
+        .filter(Boolean);
+      const shouldShow = normalizedFilter === "all" || categories.includes(normalizedFilter);
+      card.classList.toggle("hidden", !shouldShow);
+    });
+  };
+
+  const runFilterWithAnimation = (filter, animate = true) => {
+    const normalizedFilter = (filter || "all").toLowerCase();
+    const applyFilter = () => {
+      filterProjects(normalizedFilter);
+      currentFilter = normalizedFilter;
+    };
+
+    if (!projectGrid || !animate) {
+      applyFilter();
+      return;
+    }
+
+    if (filterTimeoutId) clearTimeout(filterTimeoutId);
+    if (releaseTimeoutId) clearTimeout(releaseTimeoutId);
+
+    projectGrid.classList.add(...gridFadeClasses);
+
+    filterTimeoutId = setTimeout(() => {
+      applyFilter();
+      requestAnimationFrame(() => {
+        projectGrid.classList.remove(...gridFadeClasses);
+        releaseTimeoutId = setTimeout(() => {
+          filterTimeoutId = null;
+          releaseTimeoutId = null;
+        }, 300);
+      });
+    }, 200);
+  };
+
+  projectFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const selectedFilter = button.dataset.projectFilter;
+      setActiveButton(button);
+      runFilterWithAnimation(selectedFilter, currentFilter !== null);
+    });
+  });
+
+  const defaultButton =
+    Array.from(projectFilterButtons).find((btn) => btn.dataset.default === "true") ||
+    projectFilterButtons[0];
+
+  if (defaultButton) {
+    setActiveButton(defaultButton);
+    runFilterWithAnimation(defaultButton.dataset.projectFilter, false);
+  }
+}
 
 document.querySelectorAll(".project-card").forEach((card) => {
   const beforeEl = card.querySelector(".project-before");

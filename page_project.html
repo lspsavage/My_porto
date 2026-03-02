@@ -1,0 +1,423 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luthfa Sobrian - Projects</title>
+  <link href="./dist/output.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes project-filter-fade {
+      0% {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #project-grid [data-project-category] {
+      will-change: opacity, transform;
+    }
+
+    #project-grid [data-project-category]:not(.hidden) {
+      animation: project-filter-fade 0.45s ease forwards;
+    }
+  </style>
+</head>
+
+<body class="bg-[#0f0f0f] text-white font-sans scroll-smooth m-0 p-0 relative overflow-x-hidden">
+  <div id="cursor-glow"
+    class="pointer-events-none fixed top-0 left-0 w-96 h-96 rounded-full bg-purple-700 opacity-15 blur-2xl z-0">
+  </div>
+
+  <nav
+    class="bg-[#0f0f0f] border-b border-gray-800 backdrop-blur-md shadow-lg transition-all duration-300 mb-6 relative z-50">
+    <div class="max-w-6xl mx-auto px-3 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-3 group">
+        <img src="./assets/Logo LS.png" alt="Logo"
+          class="h-12 w-12 rounded-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <span class="text-white text-lg font-semibold">Luthfa Sobrian</span>
+      </a>
+
+      <button id="hamburger"
+        class="md:hidden relative z-50 flex flex-col justify-center items-center w-10 h-10 rounded hover:bg-gray-800 focus:outline-none">
+        <span id="bar1" class="block w-6 h-0.5 bg-white mb-1 transition-transform duration-300"></span>
+        <span id="bar2" class="block w-6 h-0.5 bg-white mb-1 transition-opacity duration-300"></span>
+        <span id="bar3" class="block w-6 h-0.5 bg-white transition-transform duration-300"></span>
+      </button>
+
+      <ul id="nav-menu"
+        class="flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-6 text-sm absolute top-16 right-4 md:static md:top-auto md:right-auto bg-[#0f0f0f] border border-gray-700 rounded-md hidden p-4 w-48 md:w-auto md:flex z-40 md:border-0 md:bg-transparent md:p-0">
+        <li><a href="index.html#about" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">About</a></li>
+        <li><a href="index.html#projects" class="hover:text-purple-300 block px-2 md:px-4 md:py-2">Featured</a></li>
+        <li><a href="index.html#contact" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">Contact</a></li>
+        <li><a href="index.html" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">Back to Home</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="tsparticles"></div>
+
+  <header
+    class="relative max-w-6xl mx-auto px-4 pt-16 pb-20 md:pt-24 md:pb-28 flex flex-col md:flex-row items-center gap-12">
+    <div class="hero-text w-full md:w-2/3 space-y-6">
+      <p class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.5em] text-purple-300/80">
+        <span class="h-1 w-10 rounded-full bg-gradient-to-r from-purple-500 to-cyan-400"></span>
+        Project Library
+      </p>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+        Building user-centered systems powered by thoughtful
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-cyan-300">
+          design & data
+        </span>
+      </h1>
+      <p class="text-gray-400 text-lg md:text-xl max-w-2xl">
+        Saya adalah Frontend Developer, System Analyst, UI/UX Designer, dan Data Analyst yang berfokus pada pembangunan
+        solusi digital end-to-end. Dari perancangan sistem, desain pengalaman pengguna, hingga implementasi dan analisis
+        data, setiap project saya bangun dengan pendekatan terstruktur dan berbasis kebutuhan bisnis.
+      </p>
+      <div class="flex flex-wrap items-center gap-3 pt-2">
+        <span
+          class="inline-flex items-center gap-2 rounded-full border border-purple-500/60 bg-purple-500/20 px-4 py-2 text-xs uppercase tracking-[0.35em] text-purple-200">
+          Data
+        </span>
+        <span
+          class="inline-flex items-center gap-2 rounded-full border border-cyan-500/60 bg-cyan-500/20 px-4 py-2 text-xs uppercase tracking-[0.35em] text-cyan-200">
+          Frontend
+        </span>
+        <span
+          class="inline-flex items-center gap-2 rounded-full border border-fuchsia-500/60 bg-fuchsia-500/20 px-4 py-2 text-xs uppercase tracking-[0.35em] text-fuchsia-200">
+          UI/UX
+        </span>
+        <span
+          class="inline-flex items-center gap-2 rounded-full border border-indigo-500/60 bg-indigo-500/20 px-4 py-2 text-xs uppercase tracking-[0.35em] text-indigo-200">
+          Analyst
+        </span>
+      </div>
+    </div>
+
+    <div class="hero-image relative w-full md:w-1/3 flex justify-center">
+      <div
+        class="relative h-64 w-64 rounded-full bg-gradient-to-br from-purple-500/20 via-fuchsia-500/20 to-cyan-400/20 flex items-center justify-center">
+        <div
+          class="h-48 w-48 rounded-full bg-[#111111] border border-purple-500/30 shadow-[0_0_60px_rgba(155,61,213,0.35)] flex items-center justify-center">
+          <svg class="h-24 w-24 text-purple-300" fill="none" stroke="currentColor" stroke-width="1.5"
+            viewBox="0 0 48 48" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 32h30M12 24l12-12 12 12M18 32v10h12V32" />
+          </svg>
+        </div>
+        <span
+          class="absolute -top-6 right-6 h-14 w-14 rounded-xl bg-purple-500/30 backdrop-blur border border-purple-400/40"></span>
+        <span
+          class="absolute -bottom-4 left-4 h-10 w-10 rounded-full bg-cyan-400/30 backdrop-blur border border-cyan-300/50"></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+    <section id="projects" class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12">
+          <div>
+            <h2 class="text-3xl font-semibold">Semua Project</h2>
+            <p class="text-gray-400 max-w-2xl">
+              Dipilah dalam beberapa kategori agar mudah ditemukan. Klik kartu untuk melihat repository atau demo
+              langsung.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-3" id="project-filter">
+            <button type="button" data-project-filter="all" data-default="true"
+              class="inline-flex items-center gap-2 rounded-full border border-purple-500/60 bg-purple-500/10 px-4 py-2 text-sm text-purple-100 font-medium">
+              <span class="h-2 w-2 rounded-full bg-purple-400"></span> Semua
+            </button>
+            <button type="button" data-project-filter="frontend"
+              class="inline-flex items-center gap-2 rounded-full border border-cyan-500/50 px-4 py-2 text-sm text-cyan-100 font-medium hover:bg-cyan-500/10">
+              <span class="h-2 w-2 rounded-full bg-cyan-400"></span> Frontend
+            </button>
+            <button type="button" data-project-filter="data"
+              class="inline-flex items-center gap-2 rounded-full border border-fuchsia-500/50 px-4 py-2 text-sm text-fuchsia-100 font-medium hover:bg-fuchsia-500/10">
+              <span class="h-2 w-2 rounded-full bg-fuchsia-400"></span> Data
+            </button>
+            <button type="button" data-project-filter="analyst"
+              class="inline-flex items-center gap-2 rounded-full border border-emerald-500/50 px-4 py-2 text-sm text-emerald-100 font-medium hover:bg-emerald-500/10">
+              <span class="h-2 w-2 rounded-full bg-emerald-400"></span> Analyst
+            </button>
+          </div>
+        </div>
+
+        <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 transition-all duration-300">
+          <article data-project-category="data"
+            class="group relative flex flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(168,85,247,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(168,85,247,0.75)]">
+            <span
+              class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
+              style="background: radial-gradient(circle at top left, rgba(168,85,247,0.35), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(59,130,246,0.35), transparent 60%);"></span>
+            <div class="relative z-10 flex flex-col gap-5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs uppercase tracking-[0.35em] text-purple-200">Data</span>
+                <span class="rounded-full bg-purple-500/20 px-3 py-1 text-xs text-purple-200">Power BI</span>
+              </div>
+              <h3 class="text-2xl font-semibold">Boston Housing Price Analysis</h3>
+              <p class="text-gray-300 text-sm">
+                Dashboard interaktif untuk mengevaluasi faktor yang memengaruhi harga rumah di Boston menggunakan
+                Python,
+                Power BI, dan visualisasi dinamis.
+              </p>
+              <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
+                <a href="https://github.com/lspsavage/DataAnalyst_boston-house-price" target="_blank"
+                  class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
+                  Lihat detail
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+                <span class="text-xs text-gray-400">2024</span>
+              </div>
+            </div>
+          </article>
+
+          <article data-project-category="frontend"
+            class="group relative flex flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(59,130,246,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(59,130,246,0.75)]">
+            <span
+              class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
+              style="background: radial-gradient(circle at top left, rgba(79,70,229,0.35), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(59,130,246,0.35), transparent 60%);"></span>
+            <div class="relative z-10 flex flex-col gap-5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs uppercase tracking-[0.35em] text-purple-200">Frontend</span>
+                <span class="rounded-full bg-cyan-500/20 px-3 py-1 text-xs text-cyan-200">React</span>
+              </div>
+              <h3 class="text-2xl font-semibold">Tech Conference Landing Page</h3>
+              <p class="text-gray-300 text-sm">
+                Landing page responsif dengan Tailwind dan React, menampilkan animasi halus, countdown event, serta
+                integrasi formulir pendaftaran.
+              </p>
+              <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
+                <a href="https://github.com/lspsavage" target="_blank"
+                  class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
+                  Lihat detail
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+                <span class="text-xs text-gray-400">2025</span>
+              </div>
+            </div>
+          </article>
+
+          <article data-project-category="automation"
+            class="group relative flex flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(16,185,129,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(16,185,129,0.75)]">
+            <span
+              class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
+              style="background: radial-gradient(circle at top left, rgba(16,185,129,0.35), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(168,85,247,0.35), transparent 60%);"></span>
+            <div class="relative z-10 flex flex-col gap-5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs uppercase tracking-[0.35em] text-purple-200">Automation</span>
+                <span class="rounded-full bg-emerald-500/20 px-3 py-1 text-xs text-emerald-200">Python</span>
+              </div>
+              <h3 class="text-2xl font-semibold">Marketing Performance Pipeline</h3>
+              <p class="text-gray-300 text-sm">
+                Otomatisasi pengambilan data kampanye, pembersihan data, dan update dashboard harian menggunakan Python,
+                Airflow, dan Google Sheets API.
+              </p>
+              <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
+                <a href="https://github.com/lspsavage" target="_blank"
+                  class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
+                  Lihat detail
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+                <span class="text-xs text-gray-400">2024</span>
+              </div>
+            </div>
+          </article>
+
+          <article data-project-category="uiux"
+            class="group relative flex flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(236,72,153,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(236,72,153,0.75)]">
+            <span
+              class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
+              style="background: radial-gradient(circle at top left, rgba(236,72,153,0.35), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(59,130,246,0.35), transparent 60%);"></span>
+            <div class="relative z-10 flex flex-col gap-5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs uppercase tracking-[0.35em] text-purple-200">UI/UX</span>
+                <span class="rounded-full bg-fuchsia-500/20 px-3 py-1 text-xs text-fuchsia-200">Figma</span>
+              </div>
+              <h3 class="text-2xl font-semibold">Laundry App Experience</h3>
+              <p class="text-gray-300 text-sm">
+                Rancangan high-fidelity untuk aplikasi laundry dengan alur pemesanan cepat, status pesanan real-time,
+                dan
+                brand guideline lengkap.
+              </p>
+              <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
+                <a href="https://www.behance.net" target="_blank"
+                  class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
+                  Lihat detail
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+                <span class="text-xs text-gray-400">2023</span>
+              </div>
+            </div>
+          </article>
+
+          <article data-project-category="frontend"
+            class="group relative flex flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(129,140,248,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(129,140,248,0.75)]">
+            <span
+              class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
+              style="background: radial-gradient(circle at top left, rgba(129,140,248,0.35), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(168,85,247,0.35), transparent 60%);"></span>
+            <div class="relative z-10 flex flex-col gap-5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs uppercase tracking-[0.35em] text-purple-200">Frontend</span>
+                <span class="rounded-full bg-purple-500/20 px-3 py-1 text-xs text-purple-200">Tailwind CSS</span>
+              </div>
+              <h3 class="text-2xl font-semibold">Personal Portfolio Revamp</h3>
+              <p class="text-gray-300 text-sm">
+                Pengembangan ulang portofolio pribadi dengan micro-interaction, dark mode bertema neon, dan performa
+                optimal di Lighthouse.
+              </p>
+              <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
+                <a href="https://lspsavage.github.io" target="_blank"
+                  class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
+                  Lihat detail
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+                <span class="text-xs text-gray-400">2025</span>
+              </div>
+            </div>
+          </article>
+
+          <article data-project-category="data"
+            class="group relative flex flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(56,189,248,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(56,189,248,0.75)]">
+            <span
+              class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
+              style="background: radial-gradient(circle at top left, rgba(56,189,248,0.35), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(168,85,247,0.35), transparent 60%);"></span>
+            <div class="relative z-10 flex flex-col gap-5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs uppercase tracking-[0.35em] text-purple-200">Data</span>
+                <span class="rounded-full bg-sky-500/20 px-3 py-1 text-xs text-sky-100">Looker Studio</span>
+              </div>
+              <h3 class="text-2xl font-semibold">E-commerce Performance Monitor</h3>
+              <p class="text-gray-300 text-sm">
+                Dashboard penjualan real-time dengan Looker Studio terintegrasi Google Analytics dan Google Ads untuk
+                memantau KPI penting.
+              </p>
+              <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
+                <a href="https://github.com/lspsavage" target="_blank"
+                  class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
+                  Lihat detail
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+                <span class="text-xs text-gray-400">2023</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative py-20 px-4">
+      <div
+        class="max-w-5xl mx-auto rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.25),transparent_60%),#111018] px-6 py-12 text-center shadow-[0_40px_100px_-45px_rgba(168,85,247,0.65)]">
+        <h2 class="text-3xl md:text-4xl font-semibold mb-4">Tertarik berkolaborasi?</h2>
+        <p class="text-gray-300 max-w-3xl mx-auto">
+          Saya senang mengerjakan proyek baru, baik itu meningkatkan produk yang ada, membangun dashboard custom, atau
+          membuat pengalaman web yang memukau. Mari berdiskusi untuk menemukan solusi terbaik bagi kebutuhan Anda.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a href="index.html#contact"
+            class="relative inline-flex items-center justify-center overflow-hidden rounded-full px-8 py-3 font-semibold text-white transition-all duration-300 group focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f0f0f]">
+            <span
+              class="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 via-fuchsia-500 to-cyan-400 opacity-70 blur-md transition-all duration-500 group-hover:blur-xl group-hover:opacity-100"></span>
+            <span
+              class="pointer-events-none absolute inset-[2px] rounded-full bg-[#121212] border border-purple-500/40 shadow-[0_0_30px_rgba(155,61,213,0.35)] transition-all duration-500 group-hover:border-purple-300/80 group-hover:shadow-[0_0_40px_rgba(155,61,213,0.55)]"></span>
+            <span class="relative flex items-center gap-2 text-sm uppercase tracking-[0.35em]">
+              <span>Hubungi Saya</span>
+              <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none"
+                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6" />
+              </svg>
+            </span>
+          </a>
+          <a href="https://github.com/lspsavage?tab=repositories" target="_blank"
+            class="inline-flex items-center gap-2 rounded-full border border-purple-500/40 px-8 py-3 text-sm font-semibold text-purple-200 transition duration-300 hover:border-purple-300/80 hover:text-purple-100">
+            Lihat GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#181818] text-center py-8 text-gray-400 border-t border-gray-800 flex flex-col items-center gap-6">
+    <div class="flex justify-center gap-2 md:gap-4">
+      <a href="https://www.instagram.com/luthfasp?igsh=MXJjdGVsOWVzMmJhcw==" target="_blank"
+        class="bg-[#232323] hover:bg-purple-600 transition rounded w-12 h-12 flex items-center justify-center">
+        <svg class="w-6 h-6 text-gray-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+          aria-hidden="true">
+          <rect width="18" height="18" x="3" y="3" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <path d="M17.5 6.5h.01" />
+        </svg>
+      </a>
+      <a href="https://github.com/lspsavage" target="_blank"
+        class="bg-[#232323] hover:bg-purple-600 transition rounded w-12 h-12 flex items-center justify-center">
+        <svg class="w-6 h-6 text-gray-200" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.867 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.528 2.341 1.087 2.91.832.091-.647.35-1.087.636-1.338-2.221-.253-4.555-1.111-4.555-4.944 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.592 1.028 2.683 0 3.842-2.337 4.687-4.566 4.936.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .268.18.579.688.481C19.135 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/luthfa-sobrian-pramasta-0818ba337/" target="_blank"
+        class="bg-[#232323] hover:bg-purple-600 transition rounded w-12 h-12 flex items-center justify-center">
+        <svg class="w-6 h-6 text-gray-200" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.867-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.034 0 3.595 1.997 3.595 4.59v5.606z" />
+        </svg>
+      </a>
+    </div>
+    <div class="my-4">
+      <svg class="mx-auto w-8 h-8 text-gray-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+        aria-hidden="true">
+        <path d="M12 2C12 2 7 7 7 12c0 2.761 2.239 5 5 5s5-2.239 5-5c0-5-5-10-5-10z" />
+        <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+        <path d="M12 17v4m-2 0h4" stroke-linecap="round" />
+      </svg>
+    </div>
+    <div class="text-sm text-gray-400">
+      &copy; Luthfa Sobrian 2025
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="src/script.js"></script>
+</body>
+
+</html>
