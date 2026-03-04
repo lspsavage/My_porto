@@ -296,6 +296,46 @@
       padding: 0;
     }
 
+    article table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid #2a2a42;
+      border-radius: 10px;
+      background: #0f0f18;
+    }
+
+    article .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 1rem 0;
+    }
+
+    article th,
+    article td {
+      border: 1px solid #2a2a42;
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    article th {
+      background: #171728;
+      color: #f4f4ff;
+      font-weight: 600;
+    }
+
+    article tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    @media (max-width: 900px) {
+      article .table-wrap table {
+        min-width: 640px;
+      }
+    }
+
     .right {
       border-left: 1px solid var(--line);
       padding: 22px 16px;
@@ -608,7 +648,8 @@
   <script>
     const docs = [
       { section: "Intro", label: "Getting Started", file: "getting_started.md" },
-      { section: "Dokumentasi", label: "Portofolio", file: "Portofolio.md" }
+      { section: "Dokumentasi", label: "Portofolio", file: "Portofolio.md" },
+      { section: "Dokumentasi", label: "Installation_tailwind_v4", file: "Installation_tailwind_v4.md" }
     ];
 
     const DEFAULT_DOC = "getting_started.md";
@@ -772,6 +813,14 @@
         gfm: true,
         breaks: true,
         headerIds: false
+      });
+
+      contentEl.querySelectorAll("table").forEach((table) => {
+        if (table.parentElement?.classList.contains("table-wrap")) return;
+        const wrapper = document.createElement("div");
+        wrapper.className = "table-wrap";
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
       });
 
       setHeadingIds();
