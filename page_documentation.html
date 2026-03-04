@@ -142,6 +142,10 @@
       display: none;
     }
 
+    .mobile-toc {
+      display: none;
+    }
+
     .search-wrap {
       position: sticky;
       top: 0;
@@ -227,6 +231,7 @@
       color: var(--muted);
       margin-bottom: 14px;
       font-size: 0.95rem;
+      display: none;
     }
 
     article {
@@ -422,6 +427,75 @@
         backdrop-filter: blur(8px);
       }
 
+      .mobile-toc {
+        display: block;
+        position: sticky;
+        top: 59px;
+        z-index: 34;
+        padding: 8px 12px 10px;
+        border-bottom: 1px solid rgba(31, 31, 44, 0.85);
+        background: rgba(12, 12, 18, 0.62);
+        backdrop-filter: blur(10px);
+      }
+
+      .mobile-toc-trigger {
+        width: 100%;
+        border: 1px solid #2a2a3c;
+        background: rgba(16, 16, 26, 0.7);
+        color: #d9d9f4;
+        border-radius: 10px;
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font: inherit;
+        font-size: 0.95rem;
+        cursor: pointer;
+      }
+
+      .mobile-toc-trigger svg {
+        transition: transform 0.2s ease;
+      }
+
+      .mobile-toc.open .mobile-toc-trigger svg {
+        transform: rotate(180deg);
+      }
+
+      .mobile-toc-list {
+        margin-top: 8px;
+        max-height: 38vh;
+        overflow: auto;
+        border: 1px solid #2a2a3c;
+        border-radius: 10px;
+        background: rgba(15, 15, 24, 0.78);
+        backdrop-filter: blur(10px);
+        padding: 8px 10px;
+        display: none;
+      }
+
+      .mobile-toc.open .mobile-toc-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .mobile-toc-list a {
+        color: #b7b7d7;
+        text-decoration: none;
+        font-size: 0.92rem;
+        line-height: 1.35;
+      }
+
+      .mobile-toc-list a.depth-3 {
+        padding-left: 12px;
+        color: #9c9cbe;
+      }
+
+      .mobile-toc-list a.active {
+        color: #f4f4ff;
+        font-weight: 600;
+      }
+
       .mobile-topbar-title {
         font-weight: 800;
         font-size: 1.2rem;
@@ -447,6 +521,10 @@
 
       article {
         margin-left: 0;
+      }
+
+      .right {
+        display: none;
       }
     }
   </style>
@@ -476,6 +554,18 @@
         </svg>
       </button>
     </header>
+
+    <section id="mobile-toc" class="mobile-toc">
+      <button id="mobile-toc-trigger" class="mobile-toc-trigger" type="button" aria-expanded="false"
+        aria-controls="mobile-toc-list">
+        <span>On this page</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+      <nav id="mobile-toc-list" class="mobile-toc-list"></nav>
+    </section>
 
     <div id="mobile-backdrop" class="mobile-backdrop" aria-hidden="true"></div>
 
@@ -532,6 +622,9 @@
     const mobileSidebarToggleBtn = document.getElementById("mobile-sidebar-toggle");
     const mobileSearchBtn = document.getElementById("mobile-search-btn");
     const mobileBackdropEl = document.getElementById("mobile-backdrop");
+    const mobileTocEl = document.getElementById("mobile-toc");
+    const mobileTocTriggerBtn = document.getElementById("mobile-toc-trigger");
+    const mobileTocListEl = document.getElementById("mobile-toc-list");
 
     const isMobileView = () => window.matchMedia("(max-width: 900px)").matches;
 
@@ -562,7 +655,13 @@
     const setMobileSidebarState = (open) => {
       layoutEl.classList.toggle("sidebar-open", open);
       mobileSidebarToggleBtn.setAttribute("aria-expanded", String(open));
+      if (open) setMobileTocState(false);
       document.body.style.overflow = open ? "hidden" : "";
+    };
+
+    const setMobileTocState = (open) => {
+      mobileTocEl.classList.toggle("open", open);
+      mobileTocTriggerBtn.setAttribute("aria-expanded", String(open));
     };
 
     const buildSidebar = (filter = "") => {
@@ -631,27 +730,39 @@
 
     const buildToc = () => {
       tocEl.innerHTML = "";
+      mobileTocListEl.innerHTML = "";
+      setMobileTocState(false);
       const headings = contentEl.querySelectorAll("h1, h2, h3");
 
       if (!headings.length) {
         tocEl.innerHTML = `<span class="empty-search">No headings</span>`;
+        mobileTocListEl.innerHTML = `<span class="empty-search">No headings</span>`;
         return;
       }
 
       headings.forEach((heading) => {
-        const link = document.createElement("a");
-        link.href = `#${heading.id}`;
-        link.textContent = heading.textContent || heading.id;
-        if (heading.tagName === "H3") link.classList.add("depth-3");
-        link.addEventListener("click", () => {
-          document.querySelectorAll(".toc-list a").forEach((a) => a.classList.remove("active"));
-          link.classList.add("active");
+        const links = [tocEl, mobileTocListEl].map((target) => {
+          const link = document.createElement("a");
+          link.href = `#${heading.id}`;
+          link.textContent = heading.textContent || heading.id;
+          if (heading.tagName === "H3") link.classList.add("depth-3");
+          link.addEventListener("click", () => {
+            document.querySelectorAll(".toc-list a, .mobile-toc-list a").forEach((a) => a.classList.remove("active"));
+            link.classList.add("active");
+            if (isMobileView()) setMobileTocState(false);
+          });
+          target.appendChild(link);
+          return link;
         });
-        tocEl.appendChild(link);
+
+        links[0].dataset.headingId = heading.id;
+        links[1].dataset.headingId = heading.id;
       });
 
-      const first = tocEl.querySelector("a");
-      if (first) first.classList.add("active");
+      const firstDesktop = tocEl.querySelector("a");
+      const firstMobile = mobileTocListEl.querySelector("a");
+      if (firstDesktop) firstDesktop.classList.add("active");
+      if (firstMobile) firstMobile.classList.add("active");
     };
 
     const renderMarkdown = (markdown) => {
@@ -693,7 +804,6 @@
       try {
         const markdown = await tryFetchText([file, `./${file}`, `./markdown/${file}`]);
         renderMarkdown(markdown);
-        statusEl.textContent = `Viewing ${file}`;
       } catch (error) {
         statusEl.textContent = "Failed to load document";
         contentEl.innerHTML = `
@@ -728,9 +838,17 @@
 
       mobileBackdropEl.addEventListener("click", () => setMobileSidebarState(false));
 
+      mobileTocTriggerBtn.addEventListener("click", () => {
+        const willOpen = !mobileTocEl.classList.contains("open");
+        setMobileTocState(willOpen);
+      });
+
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape" && layoutEl.classList.contains("sidebar-open")) {
           setMobileSidebarState(false);
+        }
+        if (event.key === "Escape" && mobileTocEl.classList.contains("open")) {
+          setMobileTocState(false);
         }
       });
 
