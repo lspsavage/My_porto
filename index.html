@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,26 +16,32 @@
   </div>
 
   <!-- Navbar -->
-  <nav
-    class="bg-[#0f0f0f] border-b border-gray-800 backdrop-blur-md shadow-lg transition-all duration-300 mb-18 relative z-50">
-    <div class="max-w-6xl mx-auto px-2 py-4 flex justify-between items-center">
-      <div class="flex justify-between items-center space-x-4">
+  <nav id="navbar" class="sticky top-0 z-50 transition-all duration-300 px-0 pt-0 mb-14 w-full">
+    <div id="nav-container"
+      class="mx-auto max-w-full bg-[#0f0f0f]/80 border border-transparent border-b-gray-800 backdrop-blur-md transition-all duration-300 rounded-none px-4 py-2 md:py-4 flex justify-between items-center relative">
+      <div class="flex justify-between items-center space-x-3 md:space-x-4">
         <img src="./assets/Logo LS.png" alt="Logo"
-          class="h-12 w-12 rounded-full object-cover transition-transform duration-500 hover:scale-105">
-        <span class="text-white text-lg font-semibold">Luthfa Sobrian</span>
+          class="h-9 w-9 md:h-12 md:w-12 rounded-full object-cover transition-transform duration-500 hover:scale-105">
+        <span class="text-white text-base md:text-lg font-semibold px-2">Luthfa Sobrian</span>
       </div>
 
       <!-- Hamburger Button -->
       <button id="hamburger"
-        class="md:hidden relative z-50 flex flex-col justify-center items-center w-10 h-10 rounded hover:bg-gray-800 focus:outline-none">
-        <span id="bar1" class="block w-6 h-0.5 bg-white mb-1 transition-transform duration-300"></span>
-        <span id="bar2" class="block w-6 h-0.5 bg-white mb-1 transition-opacity duration-300"></span>
-        <span id="bar3" class="block w-6 h-0.5 bg-white transition-transform duration-300"></span>
+        class="md:hidden relative z-50 flex flex-col justify-center items-center w-10 h-10 rounded-full hover:bg-gray-800 text-white focus:outline-none">
+        <svg id="icon-menu" class="block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12" />
+          <line x1="4" x2="20" y1="6" y2="6" />
+          <line x1="4" x2="20" y1="18" y2="18" />
+        </svg>
+        <svg id="icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
       </button>
 
       <!-- Navigation Menu -->
       <ul id="nav-menu"
-        class="flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-6 text-sm absolute top-16 right-4 md:static md:top-auto md:right-auto bg-[#0f0f0f] border border-gray-700 rounded-md hidden p-4 w-48 md:w-auto md:flex z-40 md:border-0 md:bg-transparent md:p-0">
+        class="flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-6 text-sm absolute top-16 right-0 md:static md:top-auto md:right-auto bg-[#0f0f0f]/95 backdrop-blur-md border border-gray-700 rounded-2xl hidden p-4 w-48 md:w-auto md:flex z-40 md:border-0 md:bg-transparent md:p-0">
         <li><a href="#about" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">About</a></li>
         <li><a href="#projects" class="hover:text-purple-300 block px-2 md:px-4 md:py-2">Projects</a></li>
         <li><a href="#contact" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">Contact</a></li>
@@ -60,10 +66,10 @@
 
       <!-- Kanan: Gambar -->
       <div class="text-center md:text-left space-y-4">
-        <h1 class="text-5xl md:text-5xl font-bold leading-tight">
-          Hi, I'm <span class="text-purple-500" id="typed-name"></span>
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight min-h-[120px] md:min-h-0">
+          Hi, I'm <br class="block md:hidden" /> <span class="text-purple-500" id="typed-name"></span>
         </h1>
-        <p id="me" class="text-lg text-gray-400">Frontend Developer & Data Analyst based in Indonesia.</p>
+        <p id="me" class="text-lg text-gray-400 mt-2 md:mt-0">Frontend Developer & Data Analyst based in Indonesia.</p>
         <a href="#projects"
           class="relative inline-flex items-center justify-center overflow-hidden rounded-full px-8 py-3 font-semibold text-white transition-all duration-300 transform hover:-translate-y-0.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f0f0f]">
           <span
@@ -91,9 +97,9 @@
         ABOUT ME
       </h2>
     </div>
-    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-x-20 items-start mt-4 md:mt-18 lg:mt-24">
-      <!-- Kolom Kiri -->
-      <div>
+    <div class="w-full flex flex-col gap-12 md:gap-16 items-start mt-4 md:mt-12 lg:mt-16">
+      <!-- Bagian Atas: Get to Know Me -->
+      <div class="w-full">
         <h2 class="text-2xl font-semibold mb-4 md:mb-6">Get to Know Me!</h2>
         <p class="text-gray-400 mt-4 md:text-xl">
           Hello! My name is Luthfa Sobrian. I graduated from Universitas Amikom Yogyakarta, majoring in Information
@@ -103,26 +109,103 @@
           I'm always eager to learn and grow in both design and data fields.
         </p>
       </div>
-      <!-- Kolom Kanan -->
-      <div>
-        <h2 class="text-2xl font-semibold mb-4 md:mb-6 mt-4 md:mt-0">My Skills</h2>
-        <div class="w-full max-w-3xl flex flex-wrap gap-4 mt-0">
-          <!-- Frontend Skills -->
-          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">HTML</div>
-          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">CSS</div>
-          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">JavaScript
-          </div>
-          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">Tailwind
-            CSS</div>
-          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">Git</div>
+      <!-- Bagian Bawah: My Skills -->
+      <div class="w-full">
+        <h2 class="text-2xl font-semibold mb-4 md:mb-8 mt-4 md:mt-0">My Skills</h2>
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 mt-0">
 
-          <!-- Data Analyst Skills -->
-          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">Python
+          <!-- Technical Skills Section -->
+          <div class="flex flex-col gap-4">
+            <h3 class="text-xl font-semibold text-purple-400 border-b border-gray-700 pb-2">Technical Skills</h3>
+            <div class="flex flex-col gap-3">
+              <!-- Frontend -->
+              <div>
+                <h4 class="text-sm font-medium text-gray-400 mb-2">Frontend</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-900/80 border border-purple-500/60 text-gray-200 font-medium px-4 py-2 rounded-xl text-sm transition hover:bg-purple-500/20">HTML</span>
+                  <span
+                    class="bg-gray-900/80 border border-purple-500/60 text-gray-200 font-medium px-4 py-2 rounded-xl text-sm transition hover:bg-purple-500/20">CSS</span>
+                  <span
+                    class="bg-gray-900/80 border border-purple-500/60 text-gray-200 font-medium px-4 py-2 rounded-xl text-sm transition hover:bg-purple-500/20">JavaScript</span>
+                  <span
+                    class="bg-gray-900/80 border border-purple-500/60 text-gray-200 font-medium px-4 py-2 rounded-xl text-sm transition hover:bg-purple-500/20">Tailwind
+                    CSS</span>
+                </div>
+              </div>
+
+              <!-- Data & Backend -->
+              <div>
+                <h4 class="text-sm font-medium text-gray-400 mb-2">Data & Backend</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-900/80 border border-cyan-500/60 text-gray-200 font-medium px-4 py-2 rounded-xl text-sm transition hover:bg-cyan-500/20">Python</span>
+                  <span
+                    class="bg-gray-900/80 border border-cyan-500/60 text-gray-200 font-medium px-4 py-2 rounded-xl text-sm transition hover:bg-cyan-500/20">SQL</span>
+                  <span
+                    class="bg-gray-900/80 border border-cyan-500/60 text-gray-200 font-medium px-4 py-2 rounded-xl text-sm transition hover:bg-cyan-500/20">Git</span>
+                </div>
+              </div>
+
+              <!-- Analytics -->
+              <div>
+                <h4 class="text-sm font-medium text-gray-400 mb-2">Analytics</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-900/80 border border-fuchsia-500/60 text-gray-200 font-medium px-4 py-2 rounded-xl text-sm transition hover:bg-fuchsia-500/20">Excel</span>
+                  <span
+                    class="bg-gray-900/80 border border-fuchsia-500/60 text-gray-200 font-medium px-4 py-2 rounded-xl text-sm transition hover:bg-fuchsia-500/20">Power
+                    BI</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">SQL</div>
-          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">Excel</div>
-          <div class="bg-gray-900 border border-purple-500 text-gray-200 font-semibold px-6 py-4 rounded-xl">Power BI
+
+          <!-- Analyst Skills Section -->
+          <div class="flex flex-col gap-4">
+            <h3 class="text-xl font-semibold text-emerald-400 border-b border-gray-700 pb-2">Analyst Skills</h3>
+            <div class="flex flex-col gap-3">
+              <!-- Documentation -->
+              <div>
+                <h4 class="text-sm font-medium text-gray-400 mb-2">Documentation</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-900/80 border border-emerald-500/60 text-gray-200 font-medium px-4 py-2 rounded-xl text-sm transition hover:bg-emerald-500/20">Product
+                    Requirement Document (PRD)</span>
+                  <span
+                    class="bg-gray-900/80 border border-emerald-500/60 text-gray-200 font-medium px-4 py-2 rounded-xl text-sm transition hover:bg-emerald-500/20">SOP
+                    Standarization</span>
+                </div>
+              </div>
+
+              <!-- Modeling -->
+              <div>
+                <h4 class="text-sm font-medium text-gray-400 mb-2">Modeling</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-900/80 border border-emerald-500/60 text-gray-200 font-medium px-4 py-2 rounded-xl text-sm transition hover:bg-emerald-500/20">BPMN
+                    2.0</span>
+                  <span
+                    class="bg-gray-900/80 border border-emerald-500/60 text-gray-200 font-medium px-4 py-2 rounded-xl text-sm transition hover:bg-emerald-500/20">ERD
+                    (Relasi Database)</span>
+                  <span
+                    class="bg-gray-900/80 border border-emerald-500/60 text-gray-200 font-medium px-4 py-2 rounded-xl text-sm transition hover:bg-emerald-500/20">Use
+                    Case & Workflow Mapping</span>
+                </div>
+              </div>
+
+              <!-- Product Design -->
+              <div>
+                <h4 class="text-sm font-medium text-gray-400 mb-2">Product Design</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-gray-900/80 border border-pink-500/60 text-gray-200 font-medium px-4 py-2 rounded-xl text-sm transition hover:bg-pink-500/20">UI/UX
+                    Mockup & Prototyping (Figma)</span>
+                </div>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
   </section>
@@ -263,7 +346,7 @@
     <h3 class="text-2xl font-semibold mb-4 px-12">Data Analysis Projects</h3>
 
     <!-- Project Card 1 -->
-    <article onclick="window.open('https://lspsavage.github.io/Content_Project/','_blank')" class="project-card relative flex flex-col md:flex-row items-center gap-8 cursor-pointer rounded-3xl
+    <article onclick="window.location.href='https://lspsavage.github.io/Content_Project/'" class="project-card relative flex flex-col md:flex-row items-center gap-8 cursor-pointer rounded-3xl
            bg-[radial-gradient(125%_125%_at_12%_8%,rgba(168,85,247,0.2),transparent_62%),#13111a]
            border border-[rgba(168,85,247,0.35)]
            shadow-[0_22px_45px_-25px_rgba(0,0,0,0.85)]
@@ -309,7 +392,7 @@
     </article>
 
     <!-- Project Card 2 -->
-    <article onclick="window.open('https://lspsavage.github.io/Content_Project/sales_performance','_blank')" class="project-card relative flex flex-col md:flex-row items-center gap-8 cursor-pointer rounded-3xl
+    <article onclick="window.location.href='https://lspsavage.github.io/Content_Project/sales_performance'" class="project-card relative flex flex-col md:flex-row items-center gap-8 cursor-pointer rounded-3xl
            bg-[radial-gradient(125%_125%_at_12%_8%,rgba(168,85,247,0.2),transparent_62%),#13111a]
            border border-[rgba(168,85,247,0.35)]
            shadow-[0_22px_45px_-25px_rgba(0,0,0,0.85)]
@@ -355,7 +438,7 @@
     <h3 class="text-2xl font-semibold mb-4 mt-12 px-12">Frontend Projects</h3>
 
     <!-- Project Card 3 -->
-    <article onclick="window.open('https://github.com/lspsavage/DataAnalyst_boston-house-price','_blank')" class="project-card relative flex flex-col md:flex-row items-center gap-8 cursor-pointer rounded-3xl
+    <article onclick="window.location.href='https://github.com/lspsavage/DataAnalyst_boston-house-price'" class="project-card relative flex flex-col md:flex-row items-center gap-8 cursor-pointer rounded-3xl
            bg-[radial-gradient(125%_125%_at_12%_8%,rgba(168,85,247,0.2),transparent_62%),#13111a]
            border border-[rgba(168,85,247,0.35)]
            shadow-[0_22px_45px_-25px_rgba(0,0,0,0.85)]

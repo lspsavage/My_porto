@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -35,24 +35,30 @@
     class="pointer-events-none fixed top-0 left-0 w-96 h-96 rounded-full bg-purple-700 opacity-15 blur-2xl z-0">
   </div>
 
-  <nav
-    class="bg-[#0f0f0f] border-b border-gray-800 backdrop-blur-md shadow-lg transition-all duration-300 mb-6 relative z-50">
-    <div class="max-w-6xl mx-auto px-3 py-4 flex justify-between items-center">
-      <a href="index.html" class="flex items-center space-x-3 group">
+  <nav id="navbar" class="sticky top-0 z-50 transition-all duration-300 px-0 pt-0 mb-6 w-full">
+    <div id="nav-container"
+      class="mx-auto max-w-full bg-[#0f0f0f]/80 border border-transparent border-b-gray-800 backdrop-blur-md transition-all duration-300 rounded-none px-4 py-2 md:py-4 flex justify-between items-center relative">
+      <a href="index.html" class="flex items-center space-x-2 md:space-x-3 group">
         <img src="./assets/Logo LS.png" alt="Logo"
-          class="h-12 w-12 rounded-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <span class="text-white text-lg font-semibold">Luthfa Sobrian</span>
+          class="h-9 w-9 md:h-12 md:w-12 rounded-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <span class="text-white text-base md:text-lg font-semibold px-2">Luthfa Sobrian</span>
       </a>
 
       <button id="hamburger"
-        class="md:hidden relative z-50 flex flex-col justify-center items-center w-10 h-10 rounded hover:bg-gray-800 focus:outline-none">
-        <span id="bar1" class="block w-6 h-0.5 bg-white mb-1 transition-transform duration-300"></span>
-        <span id="bar2" class="block w-6 h-0.5 bg-white mb-1 transition-opacity duration-300"></span>
-        <span id="bar3" class="block w-6 h-0.5 bg-white transition-transform duration-300"></span>
+        class="md:hidden relative z-50 flex flex-col justify-center items-center w-10 h-10 rounded-full hover:bg-gray-800 text-white focus:outline-none">
+        <svg id="icon-menu" class="block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12" />
+          <line x1="4" x2="20" y1="6" y2="6" />
+          <line x1="4" x2="20" y1="18" y2="18" />
+        </svg>
+        <svg id="icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
       </button>
 
       <ul id="nav-menu"
-        class="flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-6 text-sm absolute top-16 right-4 md:static md:top-auto md:right-auto bg-[#0f0f0f] border border-gray-700 rounded-md hidden p-4 w-48 md:w-auto md:flex z-40 md:border-0 md:bg-transparent md:p-0">
+        class="flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-6 text-sm absolute top-16 right-0 md:static md:top-auto md:right-auto bg-[#0f0f0f]/95 backdrop-blur-md border border-gray-700 rounded-2xl hidden p-4 w-48 md:w-auto md:flex z-40 md:border-0 md:bg-transparent md:p-0">
         <li><a href="index.html#about" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">About</a></li>
         <li><a href="index.html#projects" class="hover:text-purple-300 block px-2 md:px-4 md:py-2">Featured</a></li>
         <li><a href="index.html#contact" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">Contact</a></li>
@@ -152,7 +158,8 @@
 
         <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 transition-all duration-300">
           <article data-project-category="data"
-            class="group relative flex flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(168,85,247,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(168,85,247,0.75)]">
+            onclick="window.location.href='https://lspsavage.github.io/Content_Project/'"
+            class="group relative flex cursor-pointer flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(168,85,247,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(168,85,247,0.75)]">
             <span
               class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
               style="background: radial-gradient(circle at top left, rgba(168,85,247,0.35), transparent 60%),
@@ -169,7 +176,7 @@
                 Power BI, dan visualisasi dinamis.
               </p>
               <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
-                <a href="https://lspsavage.github.io/Content_Project/" target="_blank"
+                <a href="https://lspsavage.github.io/Content_Project/"
                   class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
                   Lihat detail
                   <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
@@ -178,13 +185,13 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6" />
                   </svg>
                 </a>
-                <span class="text-xs text-gray-400">2024</span>
+                <span class="text-xs text-gray-400">2026</span>
               </div>
             </div>
           </article>
 
-          <article data-project-category="frontend"
-            class="group relative flex flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(59,130,246,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(59,130,246,0.75)]">
+          <article data-project-category="frontend" onclick="window.location.href='https://github.com/lspsavage'"
+            class="group relative flex cursor-pointer flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(59,130,246,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(59,130,246,0.75)]">
             <span
               class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
               style="background: radial-gradient(circle at top left, rgba(79,70,229,0.35), transparent 60%),
@@ -200,7 +207,7 @@
                 integrasi formulir pendaftaran.
               </p>
               <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
-                <a href="https://github.com/lspsavage" target="_blank"
+                <a href="https://github.com/lspsavage"
                   class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
                   Lihat detail
                   <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
@@ -215,23 +222,28 @@
           </article>
 
           <article data-project-category="analyst"
-            class="group relative flex flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(16,185,129,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(16,185,129,0.75)]">
+            onclick="window.location.href='https://lspsavage.github.io/Content_Project/project/alurkerja.html'"
+            class="group relative flex cursor-pointer flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(16,185,129,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(16,185,129,0.75)]">
             <span
               class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
               style="background: radial-gradient(circle at top left, rgba(16,185,129,0.35), transparent 60%),
               radial-gradient(circle at bottom right, rgba(168,85,247,0.35), transparent 60%);"></span>
             <div class="relative z-10 flex flex-col gap-5">
               <div class="flex items-center justify-between">
-                <span class="text-xs uppercase tracking-[0.35em] text-purple-200">Automation</span>
-                <span class="rounded-full bg-emerald-500/20 px-3 py-1 text-xs text-emerald-200">Python</span>
+                <span class="text-xs uppercase tracking-[0.35em] text-purple-200">Analyst</span>
+                <div class="flex items-center gap-2">
+                  <span class="rounded-full bg-emerald-500/20 px-3 py-1 text-xs text-emerald-200">PRD</span>
+                  <span class="rounded-full bg-emerald-500/20 px-3 py-1 text-xs text-emerald-200">Mockup</span>
+                </div>
               </div>
-              <h3 class="text-2xl font-semibold">Marketing Performance Pipeline</h3>
+              <h3 class="text-2xl font-semibold">Alurkerja Platform</h3>
               <p class="text-gray-300 text-sm">
-                Otomatisasi pengambilan data kampanye, pembersihan data, dan update dashboard harian menggunakan Python,
-                Airflow, dan Google Sheets API.
+                Platform SaaS Low-Code untuk mempercepat transformasi digital melalui otomatisasi alur kerja.
+                Memungkinkan bisnis membangun aplikasi kustom, mengintegrasikan layanan, dan mengelola operasional
+                secara terpusat.
               </p>
               <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
-                <a href="https://github.com/lspsavage" target="_blank"
+                <a href="https://lspsavage.github.io/Content_Project/project/alurkerja.html"
                   class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
                   Lihat detail
                   <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
@@ -240,13 +252,13 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6" />
                   </svg>
                 </a>
-                <span class="text-xs text-gray-400">2024</span>
+                <span class="text-xs text-gray-400">2026</span>
               </div>
             </div>
           </article>
 
-          <article data-project-category="uiux"
-            class="group relative flex flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(236,72,153,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(236,72,153,0.75)]">
+          <article data-project-category="uiux" onclick="window.location.href='https://www.behance.net'"
+            class="group relative flex cursor-pointer flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(236,72,153,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(236,72,153,0.75)]">
             <span
               class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
               style="background: radial-gradient(circle at top left, rgba(236,72,153,0.35), transparent 60%),
@@ -263,7 +275,7 @@
                 brand guideline lengkap.
               </p>
               <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
-                <a href="https://www.behance.net" target="_blank"
+                <a href="https://www.behance.net"
                   class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
                   Lihat detail
                   <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
@@ -277,8 +289,8 @@
             </div>
           </article>
 
-          <article data-project-category="frontend"
-            class="group relative flex flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(129,140,248,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(129,140,248,0.75)]">
+          <article data-project-category="frontend" onclick="window.location.href='https://lspsavage.github.io'"
+            class="group relative flex cursor-pointer flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(129,140,248,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(129,140,248,0.75)]">
             <span
               class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
               style="background: radial-gradient(circle at top left, rgba(129,140,248,0.35), transparent 60%),
@@ -294,7 +306,7 @@
                 optimal di Lighthouse.
               </p>
               <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
-                <a href="https://lspsavage.github.io" target="_blank"
+                <a href="https://lspsavage.github.io"
                   class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
                   Lihat detail
                   <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
@@ -309,7 +321,8 @@
           </article>
 
           <article data-project-category="data"
-            class="group relative flex flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(56,189,248,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(56,189,248,0.75)]">
+            onclick="window.location.href='https://lspsavage.github.io/Content_Project/project/sales_performance.html'"
+            class="group relative flex cursor-pointer flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(56,189,248,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(56,189,248,0.75)]">
             <span
               class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
               style="background: radial-gradient(circle at top left, rgba(56,189,248,0.35), transparent 60%),
@@ -325,7 +338,7 @@
                 perilaku pelanggan.
               </p>
               <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
-                <a href="https://github.com/lspsavage" target="_blank"
+                <a href="https://lspsavage.github.io/Content_Project/project/sales_performance.html"
                   class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
                   Lihat detail
                   <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
@@ -335,6 +348,71 @@
                   </svg>
                 </a>
                 <span class="text-xs text-gray-400">2025</span>
+              </div>
+            </div>
+          </article>
+
+          <article data-project-category="analyst"
+            onclick="window.location.href='https://lspsavage.github.io/Content_Project/project/aos_online.html'"
+            class="group relative flex cursor-pointer flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(16,185,129,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(16,185,129,0.75)]">
+            <span
+              class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
+              style="background: radial-gradient(circle at top left, rgba(16,185,129,0.35), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(168,85,247,0.35), transparent 60%);"></span>
+            <div class="relative z-10 flex flex-col gap-5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs uppercase tracking-[0.35em] text-purple-200">Analyst</span>
+                <div class="flex items-center gap-2">
+                  <span class="rounded-full bg-emerald-500/20 px-3 py-1 text-xs text-emerald-200">PRD</span>
+                  <span class="rounded-full bg-emerald-500/20 px-3 py-1 text-xs text-emerald-200">Mockup</span>
+                </div>
+              </div>
+              <h3 class="text-2xl font-semibold">AOS Online: Aligning Organization System</h3>
+              <p class="text-gray-300 text-sm">
+                Platform SaaS Business Operating System untuk mendigitalisasi operasional dan performa perusahaan,
+                mentransformasi metodologi konsultasi bisnis menjadi sistem digital yang terukur.
+              </p>
+              <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
+                <a href="https://lspsavage.github.io/Content_Project/project/aos_online.html"
+                  class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
+                  Lihat detail
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+                <span class="text-xs text-gray-400">2026</span>
+              </div>
+            </div>
+          </article>
+
+          <article data-project-category="frontend" onclick="window.location.href='https://lspsavage.github.io/Content_Project/project/alurkerja_sertifikasi.html'"
+            class="group relative flex cursor-pointer flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(59,130,246,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(59,130,246,0.75)]">
+            <span
+              class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
+              style="background: radial-gradient(circle at top left, rgba(79,70,229,0.35), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(59,130,246,0.35), transparent 60%);"></span>
+            <div class="relative z-10 flex flex-col gap-5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs uppercase tracking-[0.35em] text-purple-200">Frontend</span>
+                <span class="rounded-full bg-cyan-500/20 px-3 py-1 text-xs text-cyan-200">Tailwind CSS</span>
+              </div>
+              <h3 class="text-2xl font-semibold">Alurkerja Sertifikasi</h3>
+              <p class="text-gray-300 text-sm">
+                Platform manajemen sertifikasi end-to-end dengan fitur katalog program, ujian online, dan dashboard admin. Menggabungkan analisis bisnis (PRD) ke dalam antarmuka web yang interaktif.
+              </p>
+              <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
+                <a href="https://lspsavage.github.io/Content_Project/project/alurkerja_sertifikasi.html"
+                  class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
+                  Lihat detail
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+                <span class="text-xs text-gray-400">2026</span>
               </div>
             </div>
           </article>

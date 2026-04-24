@@ -45,30 +45,35 @@ document.addEventListener("mousemove", (e) => {
 // JavaScript untuk Navbar
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("nav-menu");
-const bars = [document.getElementById("bar1"), document.getElementById("bar2"), document.getElementById("bar3")];
+const iconMenu = document.getElementById("icon-menu");
+const iconClose = document.getElementById("icon-close");
 
-hamburger.addEventListener("click", () => {
-  navMenu.classList.toggle("hidden");
-  bars[0].classList.toggle("rotate-45");
-  bars[0].classList.toggle("mb-1");
-  bars[1].classList.toggle("opacity-0");
-  bars[2].classList.toggle("-rotate-45");
-  bars[2].classList.toggle("mb-1"); // Hapus mb-1 saat ditransformasi
-});
-
-// Menutup menu saat link diklik
-document.querySelectorAll("#nav-menu a").forEach((link) => {
-  link.addEventListener("click", () => {
-    if (!navMenu.classList.contains("hidden")) {
-      navMenu.classList.add("hidden");
-      bars[0].classList.remove("rotate-45");
-      bars[0].classList.add("mb-1");
-      bars[1].classList.remove("opacity-0");
-      bars[2].classList.remove("-rotate-45");
-      bars[2].classList.add("mb-1");
+if (hamburger && navMenu) {
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("hidden");
+    if (iconMenu && iconClose) {
+      iconMenu.classList.toggle("hidden");
+      iconMenu.classList.toggle("block");
+      iconClose.classList.toggle("hidden");
+      iconClose.classList.toggle("block");
     }
   });
-});
+
+  // Menutup menu saat link diklik
+  document.querySelectorAll("#nav-menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (!navMenu.classList.contains("hidden")) {
+        navMenu.classList.add("hidden");
+        if (iconMenu && iconClose) {
+          iconMenu.classList.remove("hidden");
+          iconMenu.classList.add("block");
+          iconClose.classList.add("hidden");
+          iconClose.classList.remove("block");
+        }
+      }
+    });
+  });
+}
 
 // JavaScript untuk ScrollReveal
 ScrollReveal().reveal(".hero-text, .hero-image", {
@@ -203,18 +208,14 @@ tsParticles.load("tsparticles", {
 // Typing effect
 const typedTarget = document.getElementById("typed-name");
 const options = {
-  strings: ["Luthfa Sobrian", "Frontend Developer", "Data Analyst"],
+  strings: ["Luthfa Sobrian", "Frontend Dev", "System Analyst", "Data Analyst"],
   typeSpeed: 50,
   backSpeed: 25,
   loop: true,
 };
 
 if (typedTarget) {
-  if (window.innerWidth > 768) {
-    new Typed("#typed-name", options);
-  } else {
-    typedTarget.innerText = options.strings[0];
-  }
+  new Typed("#typed-name", options);
 }
 // Card hover effect for Education section
 document.querySelectorAll(".edu-card").forEach((card) => {
@@ -339,3 +340,25 @@ document.querySelectorAll(".project-card").forEach((card) => {
     glowEl.style.opacity = 0;
   });
 });
+
+// Navbar scroll effect for dynamic floating pill
+const navbar = document.getElementById("navbar");
+const navContainer = document.getElementById("nav-container");
+
+if (navbar && navContainer) {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 20) {
+      // Scrolled state: floating pill
+      navbar.classList.add("pt-4");
+      navbar.classList.remove("pt-0");
+      navContainer.classList.remove("max-w-full", "border-transparent", "rounded-none", "md:py-4");
+      navContainer.classList.add("max-w-6xl", "border-gray-800", "rounded-full", "md:py-3", "shadow-lg");
+    } else {
+      // Top state: full width
+      navbar.classList.remove("pt-4");
+      navbar.classList.add("pt-0");
+      navContainer.classList.remove("max-w-6xl", "border-gray-800", "rounded-full", "md:py-3", "shadow-lg");
+      navContainer.classList.add("max-w-full", "border-transparent", "rounded-none", "md:py-4");
+    }
+  });
+}
