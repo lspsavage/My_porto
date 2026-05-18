@@ -29,7 +29,7 @@ Pada project ini Tailwind digunakan melalui:
 
 - `src/input.css` sebagai input
 - `dist/output.css` sebagai hasil build
-- script npm `tw` untuk mode watch
+- script npm `dev` untuk mode watch
 
 ### 3. JavaScript (Vanilla)
 
@@ -74,7 +74,7 @@ Dependency utama di `package.json`:
 ### 3. Jalankan Tailwind watch
 
 ```bash
-npm run tw
+npm run dev
 ```
 
 Perintah ini memonitor perubahan file styling dan update `dist/output.css`.
@@ -110,7 +110,7 @@ Karena project berbasis HTML statis + asset CSS/JS, tidak butuh backend khusus u
 
 ## Alur Kerja Pengembangan yang Disarankan
 
-1. Jalankan `npm run tw`
+1. Jalankan `npm run dev`
 2. Jalankan local server
 3. Edit halaman HTML/CSS/JS
 4. Tambah/update dokumentasi di folder `markdown/`

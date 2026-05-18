@@ -46,7 +46,7 @@ npm install
 2. Jalankan Tailwind watcher:
 
 ```bash
-npm run tw
+npm run dev
 ```
 
 Perintah ini akan compile `src/input.css` ke `dist/output.css` secara otomatis saat ada perubahan.

@@ -18,7 +18,7 @@
   <!-- Navbar -->
   <nav id="navbar" class="sticky top-0 z-50 transition-all duration-300 px-0 pt-0 mb-14 w-full">
     <div id="nav-container"
-      class="mx-auto max-w-full bg-[#0f0f0f]/80 border border-transparent border-b-gray-800 backdrop-blur-md transition-all duration-300 rounded-none px-4 py-2 md:py-4 flex justify-between items-center relative">
+      class="mx-auto max-w-full bg-[#0f0f0f]/80 border border-transparent border-b-gray-800 backdrop-blur-md transition-all duration-300 rounded-none px-8 md:px-24 py-2 md:py-4 flex justify-between items-center relative">
       <div class="flex justify-between items-center space-x-3 md:space-x-4">
         <img src="./assets/Logo LS.png" alt="Logo"
           class="h-9 w-9 md:h-12 md:w-12 rounded-full object-cover transition-transform duration-500 hover:scale-105">
@@ -28,12 +28,15 @@
       <!-- Hamburger Button -->
       <button id="hamburger"
         class="md:hidden relative z-50 flex flex-col justify-center items-center w-10 h-10 rounded-full hover:bg-gray-800 text-white focus:outline-none">
-        <svg id="icon-menu" class="block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg id="icon-menu" class="block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="4" x2="20" y1="12" y2="12" />
           <line x1="4" x2="20" y1="6" y2="6" />
           <line x1="4" x2="20" y1="18" y2="18" />
         </svg>
-        <svg id="icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg id="icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18" />
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
@@ -44,9 +47,14 @@
         class="flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-6 text-sm absolute top-16 right-0 md:static md:top-auto md:right-auto bg-[#0f0f0f]/95 backdrop-blur-md border border-gray-700 rounded-2xl hidden p-4 w-48 md:w-auto md:flex z-40 md:border-0 md:bg-transparent md:p-0">
         <li><a href="#about" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">About</a></li>
         <li><a href="#projects" class="hover:text-purple-300 block px-2 md:px-4 md:py-2">Projects</a></li>
-        <li><a href="#contact" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">Contact</a></li>
         <li><a href="#education" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">Education</a></li>
+        <li><a href="#contact" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">Contact</a></li>
+        <li class="hidden md:flex items-center mx-1">
+          <span class="h-4 w-[1px] bg-gray-700"></span>
+        </li>
         <li><a href="page_documentation.html" class="hover:text-purple-300 block md:py-2 px-2 md:px-4">Docs</a></li>
+        <li><a href="https://eco-ooel25tnu-luthfas-projects-e057787d.vercel.app/" target="_blank"
+            class="hover:text-purple-300 block md:py-2 px-2 md:px-4">Eco-ls</a></li>
       </ul>
     </div>
   </nav>
@@ -362,9 +370,16 @@
              radial-gradient(circle at bottom right, rgba(59,130,246,0.45), transparent 60%);"></span>
 
       <div class="flex justify-center w-full md:w-1/2 relative z-10">
-        <img src="https://raw.githubusercontent.com/lspsavage/DataAnalyst_boston-house-price/main/image/dashboard.png"
-          alt="Boston Housing"
-          class="w-full max-w-md rounded-xl shadow-lg object-contain bg-white transition-all duration-300 group-hover:scale-105 border-4 border-purple-600 group-hover:border-purple-400">
+        <div
+          class="w-full max-w-md aspect-video relative overflow-hidden rounded-xl border-4 border-purple-600 group-hover:border-purple-400 transition-all duration-300 shadow-lg bg-[#1a1a1a]">
+          <!-- Background Blur -->
+          <img src="https://raw.githubusercontent.com/lspsavage/DataAnalyst_boston-house-price/main/image/dashboard.png"
+            class="absolute inset-0 w-full h-full object-cover blur-md opacity-40 scale-110">
+          <!-- Main Image -->
+          <img src="https://raw.githubusercontent.com/lspsavage/DataAnalyst_boston-house-price/main/image/dashboard.png"
+            alt="Boston Housing"
+            class="relative z-10 w-full h-full object-contain p-2 transition-all duration-300 group-hover:scale-105">
+        </div>
       </div>
 
       <div
@@ -408,8 +423,15 @@
              radial-gradient(circle at bottom right, rgba(59,130,246,0.45), transparent 60%);"></span>
 
       <div class="flex justify-center w-full md:w-1/2 relative z-10">
-        <img src="assets/dashboard_sales.png" alt="Sales Performance"
-          class="w-full max-w-md rounded-xl shadow-lg object-contain bg-white transition-all duration-300 group-hover:scale-105 border-4 border-purple-600 group-hover:border-purple-400">
+        <div
+          class="w-full max-w-md aspect-video relative overflow-hidden rounded-xl border-4 border-purple-600 group-hover:border-purple-400 transition-all duration-300 shadow-lg bg-[#1a1a1a]">
+          <!-- Background Blur -->
+          <img src="assets/dashboard_sales.png"
+            class="absolute inset-0 w-full h-full object-cover blur-md opacity-40 scale-110">
+          <!-- Main Image -->
+          <img src="assets/dashboard_sales.png" alt="Sales Performance"
+            class="relative z-10 w-full h-full object-contain p-2 transition-all duration-300 group-hover:scale-105">
+        </div>
       </div>
 
       <div
@@ -435,10 +457,10 @@
       blur-[12px] opacity-0 pointer-events-none transition duration-500 project-glow"></span>
     </article>
 
-    <h3 class="text-2xl font-semibold mb-4 mt-12 px-12">Frontend Projects</h3>
+    <h3 class="text-2xl font-semibold mb-4 mt-12 px-12">System Analyst</h3>
 
-    <!-- Project Card 3 -->
-    <article onclick="window.location.href='https://github.com/lspsavage/DataAnalyst_boston-house-price'" class="project-card relative flex flex-col md:flex-row items-center gap-8 cursor-pointer rounded-3xl
+    <!-- Project Card 3: Alurkerja -->
+    <article onclick="window.location.href='https://lspsavage.github.io/Content_Project/project/alurkerja.html'" class="project-card relative flex flex-col md:flex-row items-center gap-8 cursor-pointer rounded-3xl
            bg-[radial-gradient(125%_125%_at_12%_8%,rgba(168,85,247,0.2),transparent_62%),#13111a]
            border border-[rgba(168,85,247,0.35)]
            shadow-[0_22px_45px_-25px_rgba(0,0,0,0.85)]
@@ -450,35 +472,93 @@
            hover:bg-[radial-gradient(145%_145%_at_14%_10%,rgba(168,85,247,0.32),transparent_62%),#161125]
            p-8 mb-10 group">
 
-      <span class="absolute inset-0 rounded-3xl opacity-0 transition duration-500 z-0 project-before" style="background: radial-gradient(circle at top left, rgba(168,85,247,0.55), transparent 60%),
-             radial-gradient(circle at bottom right, rgba(59,130,246,0.45), transparent 60%);"></span>
+      <span class="absolute inset-0 rounded-3xl opacity-0 transition duration-500 z-0 project-before" style="background: radial-gradient(circle at top left, rgba(16,185,129,0.35), transparent 60%),
+             radial-gradient(circle at bottom right, rgba(168,85,247,0.35), transparent 60%);"></span>
 
       <div class="flex justify-center w-full md:w-1/2 relative z-10">
-        <img src="assets/file_2025-06-12_22.30.42.png" alt="Bread Factory Dashboard"
-          class="w-full max-w-md rounded-xl shadow-lg object-contain bg-white transition-all duration-300 group-hover:scale-105 border-4 border-purple-600 group-hover:border-purple-400">
+        <div
+          class="w-full max-w-md aspect-video relative overflow-hidden rounded-xl border-4 border-emerald-600 group-hover:border-emerald-400 transition-all duration-300 shadow-lg bg-[#1a1a1a]">
+          <!-- Background Blur -->
+          <img src="assets/image_alurkerja.png"
+            class="absolute inset-0 w-full h-full object-cover blur-md opacity-40 scale-110">
+          <!-- Main Image -->
+          <img src="assets/image_alurkerja.png" alt="Alurkerja Platform"
+            class="relative z-10 w-full h-full object-contain p-2 transition-all duration-300 group-hover:scale-105">
+        </div>
       </div>
 
       <div
         class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left mt-6 md:mt-0 relative z-10">
         <h3 class="text-2xl font-bold mb-2 flex items-end gap-2">
-          Bread Factory Dashboard
+          Alurkerja Platform
           <span
             class="inline-block self-end transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24"
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10" />
             </svg>
           </span>
         </h3>
         <p class="text-gray-300">
-          Dashboard project designed for bread factory management. Features an automated reporting bot and an
-          interactive
-          dashboard to track production, inventory, and operations in real time.
+          Platform SaaS Low-Code untuk mempercepat transformasi digital melalui otomatisasi alur kerja.
+          Memungkinkan bisnis membangun aplikasi kustom, mengintegrasikan layanan, dan mengelola operasional secara
+          terpusat.
         </p>
       </div>
 
       <span class="absolute bottom-6 right-6 w-14 h-14 rounded-full
-      bg-[radial-gradient(circle,rgba(168,85,247,0.7),transparent_70%)]
+      bg-[radial-gradient(circle,rgba(16,185,129,0.4),transparent_70%)]
+      blur-[12px] opacity-0 pointer-events-none transition duration-500 project-glow"></span>
+    </article>
+
+    <!-- Project Card 4: AOS Online -->
+    <article onclick="window.location.href='https://lspsavage.github.io/Content_Project/project/aos_online.html'" class="project-card relative flex flex-col md:flex-row items-center gap-8 cursor-pointer rounded-3xl
+           bg-[radial-gradient(125%_125%_at_12%_8%,rgba(168,85,247,0.2),transparent_62%),#13111a]
+           border border-[rgba(168,85,247,0.35)]
+           shadow-[0_22px_45px_-25px_rgba(0,0,0,0.85)]
+           backdrop-blur-[6px]
+           transition duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]
+           hover:-translate-y-3 hover:scale-[1.01]
+           hover:shadow-[0_40px_70px_-35px_rgba(168,85,247,0.55)]
+           hover:border-[rgba(214,188,250,0.85)]
+           hover:bg-[radial-gradient(145%_145%_at_14%_10%,rgba(168,85,247,0.32),transparent_62%),#161125]
+           p-8 mb-10 group">
+
+      <span class="absolute inset-0 rounded-3xl opacity-0 transition duration-500 z-0 project-before" style="background: radial-gradient(circle at top left, rgba(56,189,248,0.35), transparent 60%),
+             radial-gradient(circle at bottom right, rgba(168,85,247,0.35), transparent 60%);"></span>
+
+      <div class="flex justify-center w-full md:w-1/2 relative z-10">
+        <div
+          class="w-full max-w-md aspect-video relative overflow-hidden rounded-xl border-4 border-sky-600 group-hover:border-sky-400 transition-all duration-300 shadow-lg bg-[#1a1a1a]">
+          <!-- Background Blur -->
+          <img src="assets/image_aos.png"
+            class="absolute inset-0 w-full h-full object-cover blur-md opacity-40 scale-110">
+          <!-- Main Image -->
+          <img src="assets/image_aos.png" alt="AOS Online"
+            class="relative z-10 w-full h-full object-contain p-2 transition-all duration-300 group-hover:scale-105">
+        </div>
+      </div>
+
+      <div
+        class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left mt-6 md:mt-0 relative z-10">
+        <h3 class="text-2xl font-bold mb-2 flex items-end gap-2">
+          AOS Online
+          <span
+            class="inline-block self-end transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-sky-400" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10" />
+            </svg>
+          </span>
+        </h3>
+        <p class="text-gray-300">
+          Platform SaaS Business Operating System untuk mendigitalisasi operasional dan performa perusahaan,
+          mentransformasi metodologi konsultasi bisnis menjadi sistem digital yang terukur.
+        </p>
+      </div>
+
+      <span class="absolute bottom-6 right-6 w-14 h-14 rounded-full
+      bg-[radial-gradient(circle,rgba(56,189,248,0.4),transparent_70%)]
       blur-[12px] opacity-0 pointer-events-none transition duration-500 project-glow"></span>
     </article>
 

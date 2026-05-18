@@ -351,14 +351,14 @@ if (navbar && navContainer) {
       // Scrolled state: floating pill
       navbar.classList.add("pt-4");
       navbar.classList.remove("pt-0");
-      navContainer.classList.remove("max-w-full", "border-transparent", "rounded-none", "md:py-4");
-      navContainer.classList.add("max-w-6xl", "border-gray-800", "rounded-full", "md:py-3", "shadow-lg");
+      navContainer.classList.remove("max-w-full", "border-transparent", "rounded-none", "md:py-4", "px-8", "md:px-24");
+      navContainer.classList.add("max-w-6xl", "border-gray-800", "rounded-full", "md:py-3", "shadow-lg", "px-6", "md:px-12");
     } else {
       // Top state: full width
       navbar.classList.remove("pt-4");
       navbar.classList.add("pt-0");
-      navContainer.classList.remove("max-w-6xl", "border-gray-800", "rounded-full", "md:py-3", "shadow-lg");
-      navContainer.classList.add("max-w-full", "border-transparent", "rounded-none", "md:py-4");
+      navContainer.classList.remove("max-w-6xl", "border-gray-800", "rounded-full", "md:py-3", "shadow-lg", "px-6", "md:px-12");
+      navContainer.classList.add("max-w-full", "border-transparent", "rounded-none", "md:py-4", "px-8", "md:px-24");
     }
   });
 }

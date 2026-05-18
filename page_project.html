@@ -37,7 +37,7 @@
 
   <nav id="navbar" class="sticky top-0 z-50 transition-all duration-300 px-0 pt-0 mb-6 w-full">
     <div id="nav-container"
-      class="mx-auto max-w-full bg-[#0f0f0f]/80 border border-transparent border-b-gray-800 backdrop-blur-md transition-all duration-300 rounded-none px-4 py-2 md:py-4 flex justify-between items-center relative">
+      class="mx-auto max-w-full bg-[#0f0f0f]/80 border border-transparent border-b-gray-800 backdrop-blur-md transition-all duration-300 rounded-none px-8 md:px-24 py-2 md:py-4 flex justify-between items-center relative">
       <a href="index.html" class="flex items-center space-x-2 md:space-x-3 group">
         <img src="./assets/Logo LS.png" alt="Logo"
           class="h-9 w-9 md:h-12 md:w-12 rounded-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -83,11 +83,15 @@
         </span>
       </h1>
       <p class="text-gray-400 text-lg md:text-xl max-w-2xl">
-        Saya adalah Frontend Developer, System Analyst, UI/UX Designer, dan Data Analyst yang berfokus pada pembangunan
+        Saya adalah Fullstack Developer, System Analyst, UI/UX Designer, dan Data Analyst yang berfokus pada pembangunan
         solusi digital end-to-end. Dari perancangan sistem, desain pengalaman pengguna, hingga implementasi dan analisis
         data, setiap project saya bangun dengan pendekatan terstruktur dan berbasis kebutuhan bisnis.
       </p>
       <div class="flex flex-wrap items-center gap-3 pt-2">
+        <span
+          class="inline-flex items-center gap-2 rounded-full border border-amber-500/60 bg-amber-500/20 px-4 py-2 text-xs uppercase tracking-[0.35em] text-amber-200">
+          Fullstack
+        </span>
         <span
           class="inline-flex items-center gap-2 rounded-full border border-purple-500/60 bg-purple-500/20 px-4 py-2 text-xs uppercase tracking-[0.35em] text-purple-200">
           Data
@@ -141,6 +145,10 @@
               class="inline-flex items-center gap-2 rounded-full border border-purple-500/60 bg-purple-500/10 px-4 py-2 text-sm text-purple-100 font-medium">
               <span class="h-2 w-2 rounded-full bg-purple-400"></span> Semua
             </button>
+            <button type="button" data-project-filter="fullstack"
+              class="inline-flex items-center gap-2 rounded-full border border-amber-500/50 px-4 py-2 text-sm text-amber-100 font-medium hover:bg-amber-500/10">
+              <span class="h-2 w-2 rounded-full bg-amber-400"></span> Fullstack
+            </button>
             <button type="button" data-project-filter="frontend"
               class="inline-flex items-center gap-2 rounded-full border border-cyan-500/50 px-4 py-2 text-sm text-cyan-100 font-medium hover:bg-cyan-500/10">
               <span class="h-2 w-2 rounded-full bg-cyan-400"></span> Frontend
@@ -190,36 +198,6 @@
             </div>
           </article>
 
-          <article data-project-category="frontend" onclick="window.location.href='https://github.com/lspsavage'"
-            class="group relative flex cursor-pointer flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(59,130,246,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(59,130,246,0.75)]">
-            <span
-              class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
-              style="background: radial-gradient(circle at top left, rgba(79,70,229,0.35), transparent 60%),
-              radial-gradient(circle at bottom right, rgba(59,130,246,0.35), transparent 60%);"></span>
-            <div class="relative z-10 flex flex-col gap-5">
-              <div class="flex items-center justify-between">
-                <span class="text-xs uppercase tracking-[0.35em] text-purple-200">Frontend</span>
-                <span class="rounded-full bg-cyan-500/20 px-3 py-1 text-xs text-cyan-200">React</span>
-              </div>
-              <h3 class="text-2xl font-semibold">Tech Conference Landing Page</h3>
-              <p class="text-gray-300 text-sm">
-                Landing page responsif dengan Tailwind dan React, menampilkan animasi halus, countdown event, serta
-                integrasi formulir pendaftaran.
-              </p>
-              <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
-                <a href="https://github.com/lspsavage"
-                  class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
-                  Lihat detail
-                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                    aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6" />
-                  </svg>
-                </a>
-                <span class="text-xs text-gray-400">2025</span>
-              </div>
-            </div>
-          </article>
 
           <article data-project-category="analyst"
             onclick="window.location.href='https://lspsavage.github.io/Content_Project/project/alurkerja.html'"
@@ -257,68 +235,6 @@
             </div>
           </article>
 
-          <article data-project-category="uiux" onclick="window.location.href='https://www.behance.net'"
-            class="group relative flex cursor-pointer flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(236,72,153,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(236,72,153,0.75)]">
-            <span
-              class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
-              style="background: radial-gradient(circle at top left, rgba(236,72,153,0.35), transparent 60%),
-              radial-gradient(circle at bottom right, rgba(59,130,246,0.35), transparent 60%);"></span>
-            <div class="relative z-10 flex flex-col gap-5">
-              <div class="flex items-center justify-between">
-                <span class="text-xs uppercase tracking-[0.35em] text-purple-200">UI/UX</span>
-                <span class="rounded-full bg-fuchsia-500/20 px-3 py-1 text-xs text-fuchsia-200">Figma</span>
-              </div>
-              <h3 class="text-2xl font-semibold">Laundry App Experience</h3>
-              <p class="text-gray-300 text-sm">
-                Rancangan high-fidelity untuk aplikasi laundry dengan alur pemesanan cepat, status pesanan real-time,
-                dan
-                brand guideline lengkap.
-              </p>
-              <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
-                <a href="https://www.behance.net"
-                  class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
-                  Lihat detail
-                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                    aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6" />
-                  </svg>
-                </a>
-                <span class="text-xs text-gray-400">2023</span>
-              </div>
-            </div>
-          </article>
-
-          <article data-project-category="frontend" onclick="window.location.href='https://lspsavage.github.io'"
-            class="group relative flex cursor-pointer flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(129,140,248,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(129,140,248,0.75)]">
-            <span
-              class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
-              style="background: radial-gradient(circle at top left, rgba(129,140,248,0.35), transparent 60%),
-              radial-gradient(circle at bottom right, rgba(168,85,247,0.35), transparent 60%);"></span>
-            <div class="relative z-10 flex flex-col gap-5">
-              <div class="flex items-center justify-between">
-                <span class="text-xs uppercase tracking-[0.35em] text-purple-200">Frontend</span>
-                <span class="rounded-full bg-purple-500/20 px-3 py-1 text-xs text-purple-200">Tailwind CSS</span>
-              </div>
-              <h3 class="text-2xl font-semibold">Personal Portfolio Revamp</h3>
-              <p class="text-gray-300 text-sm">
-                Pengembangan ulang portofolio pribadi dengan micro-interaction, dark mode bertema neon, dan performa
-                optimal di Lighthouse.
-              </p>
-              <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
-                <a href="https://lspsavage.github.io"
-                  class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
-                  Lihat detail
-                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                    aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6" />
-                  </svg>
-                </a>
-                <span class="text-xs text-gray-400">2025</span>
-              </div>
-            </div>
-          </article>
 
           <article data-project-category="data"
             onclick="window.location.href='https://lspsavage.github.io/Content_Project/project/sales_performance.html'"
@@ -404,6 +320,42 @@
               </p>
               <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
                 <a href="https://lspsavage.github.io/Content_Project/project/alurkerja_sertifikasi.html"
+                  class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
+                  Lihat detail
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+                <span class="text-xs text-gray-400">2026</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card: Project Outline Platform -->
+          <article data-project-category="fullstack"
+            onclick="window.location.href='https://lspsavage.github.io/Content_Project/project/outline.html'"
+            class="group relative flex cursor-pointer flex-col rounded-3xl border border-purple-500/30 bg-[radial-gradient(120%_130%_at_15%_10%,rgba(168,85,247,0.35),transparent_60%),#14101d] p-8 shadow-[0_20px_55px_-25px_rgba(245,158,11,0.45)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_40px_85px_-40px_rgba(245,158,11,0.75)]">
+            <span
+              class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
+              style="background: radial-gradient(circle at top left, rgba(245,158,11,0.35), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(168,85,247,0.35), transparent 60%);"></span>
+            <div class="relative z-10 flex flex-col gap-5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs uppercase tracking-[0.35em] text-purple-200">Fullstack</span>
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="rounded-full bg-amber-500/20 px-2.5 py-0.5 text-xs text-amber-200">Next.js</span>
+                  <span class="rounded-full bg-amber-500/20 px-2.5 py-0.5 text-xs text-amber-200">Tailwind</span>
+                  <span class="rounded-full bg-amber-500/20 px-2.5 py-0.5 text-xs text-amber-200">Turso</span>
+                </div>
+              </div>
+              <h3 class="text-2xl font-semibold">Project Outline Platform</h3>
+              <p class="text-gray-300 text-sm">
+                Pengembangan platform manajemen pengetahuan berbasis editor blok dengan sistem hirarki folder bertingkat, migrasi data otomatis, navigasi efisien, dan publikasi web terpusat.
+              </p>
+              <div class="flex items-center justify-between pt-4 text-sm text-purple-200">
+                <a href="https://lspsavage.github.io/Content_Project/project/outline.html"
                   class="inline-flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
                   Lihat detail
                   <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"

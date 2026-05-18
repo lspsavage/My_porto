@@ -33,7 +33,7 @@ Personal portfolio website built with **HTML** and **Tailwind CSS**.
 3. **Jalankan Tailwind CLI (development):**
 
    ```sh
-   npm run tw
+   npm run dev
    ```
 
    atau build production:
