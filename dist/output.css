@@ -1037,11 +1037,6 @@ video {
   border-color: rgb(16 185 129 / 0.6);
 }
 
-.border-emerald-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(5 150 105 / var(--tw-border-opacity));
-}
-
 .border-fuchsia-500\/60 {
   border-color: rgb(217 70 239 / 0.6);
 }
@@ -1071,11 +1066,6 @@ video {
 .border-purple-600 {
   --tw-border-opacity: 1;
   border-color: rgb(147 51 234 / var(--tw-border-opacity));
-}
-
-.border-sky-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(2 132 199 / var(--tw-border-opacity));
 }
 
 .border-transparent {
@@ -1168,6 +1158,10 @@ video {
 
 .bg-\[radial-gradient\(circle\2c rgba\(168\2c 85\2c 247\2c 0\.7\)\2c transparent_70\%\)\] {
   background-image: radial-gradient(circle,rgba(168,85,247,0.7),transparent 70%);
+}
+
+.bg-\[radial-gradient\(circle\2c rgba\(245\2c 158\2c 11\2c 0\.4\)\2c transparent_70\%\)\] {
+  background-image: radial-gradient(circle,rgba(245,158,11,0.4),transparent 70%);
 }
 
 .bg-\[radial-gradient\(circle\2c rgba\(56\2c 189\2c 248\2c 0\.4\)\2c transparent_70\%\)\] {
@@ -1447,11 +1441,6 @@ video {
 .text-purple-500 {
   --tw-text-opacity: 1;
   color: rgb(168 85 247 / var(--tw-text-opacity));
-}
-
-.text-sky-400 {
-  --tw-text-opacity: 1;
-  color: rgb(56 189 248 / var(--tw-text-opacity));
 }
 
 .text-slate-200\/90 {
@@ -1816,11 +1805,6 @@ html {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.group:hover .group-hover\:border-emerald-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(52 211 153 / var(--tw-border-opacity));
-}
-
 .group:hover .group-hover\:border-purple-300\/80 {
   border-color: rgb(216 180 254 / 0.8);
 }
@@ -1828,11 +1812,6 @@ html {
 .group:hover .group-hover\:border-purple-400 {
   --tw-border-opacity: 1;
   border-color: rgb(192 132 252 / var(--tw-border-opacity));
-}
-
-.group:hover .group-hover\:border-sky-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(56 189 248 / var(--tw-border-opacity));
 }
 
 .group:hover .group-hover\:opacity-100 {
